@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -42,6 +43,10 @@ public class CockpitController implements Initializable, ViewController {
 	@FXML
 	// fx:id="add"
 	private Button add; // Value injected by FXMLLoader
+
+	@FXML
+	// fx:id="points"
+	private Label points; // Value injected by FXMLLoader
 
 	@FXML
 	// fx:id="pieChart"
@@ -95,6 +100,8 @@ public class CockpitController implements Initializable, ViewController {
 			pieDataFamily.setPieValue(dao.calculateFamily());
 			pieDataHealth.setPieValue(dao.calculateHealth());
 			pieDataYou.setPieValue(dao.calculateYou());
+
+			points.setText(dao.calculateOverallpoints().toString());
 		}
 	}
 }

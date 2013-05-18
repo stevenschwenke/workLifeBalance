@@ -14,7 +14,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao;
 
 /**
- * TODO Comment!
+ * The data access object for the application.
  * 
  * @author Steven Schwenke
  * 
@@ -80,5 +80,38 @@ public class DAO implements NewTimeRecordDao {
 			}
 		}
 		return result;
+	}
+
+	public Long calculateOverallpoints() {
+
+		long career = 0;
+		long family = 0;
+		long health = 0;
+		long you = 0;
+
+		for (TimeRecord tr : timeRecords) {
+			if (tr.getAspect().equals(Aspect.CAREER)) {
+				career += tr.getHours();
+			}
+			if (tr.getAspect().equals(Aspect.FAMILY)) {
+				family += tr.getHours();
+			}
+			if (tr.getAspect().equals(Aspect.HEALTH)) {
+				health += tr.getHours();
+			}
+			if (tr.getAspect().equals(Aspect.YOU)) {
+				you += tr.getHours();
+			}
+		}
+
+		if (career + family + health + you == 0) {
+			return 0L;
+		}
+
+		if (career == family && career == health && career == you) {
+			return 100L;
+		}
+
+		return 0L;
 	}
 }

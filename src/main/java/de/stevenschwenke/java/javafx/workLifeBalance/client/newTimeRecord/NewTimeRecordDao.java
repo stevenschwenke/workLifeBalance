@@ -24,4 +24,9 @@ public interface NewTimeRecordDao {
 
 	public double calculateYou();
 
+	/**
+	 * @return overall points of the player
+	 */
+	public Long calculateOverallpoints();
+
 }
