@@ -1,8 +1,6 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord;
 
-import javafx.collections.ObservableList;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 
 /**
  * TODO Comment!
@@ -12,9 +10,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
  */
 public interface NewTimeRecordDao {
 
-	public void addNewTimeRecord(TimeRecord newRecord);
-
-	public ObservableList<Aspect> getAllAspects();
+	public void addNewDayRecord(DayRecord newRecord);
 
 	public double calculateCareer();
 

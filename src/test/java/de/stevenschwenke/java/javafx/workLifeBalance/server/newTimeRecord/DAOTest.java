@@ -3,9 +3,11 @@ package de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
 
 /**
@@ -27,33 +29,17 @@ public class DAOTest {
 		assertEquals(new Long(0), dao.calculateOverallpoints());
 	}
 
+	@Ignore("The calculation of overall points will be refactored so this test doesn't make sense at the moment.")
 	@Test
 	public void perfectDistributionOfAspectsResultsIn100Points() {
-		dao.addNewTimeRecord(new TimeRecord(Aspect.CAREER, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.FAMILY, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.HEALTH, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.YOU, 1));
 
-		assertEquals(new Long(100), dao.calculateOverallpoints());
-	}
+		DayRecord dr = new DayRecord();
+		dr.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
+		dr.addTimeRecord(new TimeRecord(Aspect.FAMILY, 1));
+		dr.addTimeRecord(new TimeRecord(Aspect.HEALTH, 1));
+		dr.addTimeRecord(new TimeRecord(Aspect.YOU, 1));
 
-	@Test
-	public void perfectDistributionOfMultipleAspectsResultsIn100Points() {
-
-		// TODO Target is to enter daily records where each record has exactly
-		// one amounts of hours per aspect (so, 4 records, for each aspect one).
-		// Hence, the method to calculate points has to deal with just one
-		// instance of an aspect.
-
-		dao.addNewTimeRecord(new TimeRecord(Aspect.CAREER, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.FAMILY, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.HEALTH, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.YOU, 1));
-
-		dao.addNewTimeRecord(new TimeRecord(Aspect.CAREER, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.FAMILY, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.HEALTH, 1));
-		dao.addNewTimeRecord(new TimeRecord(Aspect.YOU, 1));
+		dao.addNewDayRecord(dr);
 
 		assertEquals(new Long(100), dao.calculateOverallpoints());
 	}

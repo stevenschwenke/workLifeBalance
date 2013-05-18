@@ -6,14 +6,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.util.Callback;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController;
 
@@ -24,10 +21,6 @@ public class NewTimeRecordController implements Initializable, ViewController {
 	private NewTimeRecordDao dao;
 
 	@FXML
-	// fx:id="aspect"
-	private ComboBox<Aspect> aspect; // Value injected by FXMLLoader
-
-	@FXML
 	// fx:id="cancel"
 	private Button cancel; // Value injected by FXMLLoader
 
@@ -36,8 +29,20 @@ public class NewTimeRecordController implements Initializable, ViewController {
 	private Label coloniesLabel; // Value injected by FXMLLoader
 
 	@FXML
-	// fx:id="hours"
-	private TextField hours; // Value injected by FXMLLoader
+	// fx:id="careerHours"
+	private TextField careerHours; // Value injected by FXMLLoader
+
+	@FXML
+	// fx:id="familyHours"
+	private TextField familyHours; // Value injected by FXMLLoader
+
+	@FXML
+	// fx:id="healthHours"
+	private TextField healthHours; // Value injected by FXMLLoader
+
+	@FXML
+	// fx:id="youHours"
+	private TextField youHours; // Value injected by FXMLLoader
 
 	@FXML
 	// fx:id="ok"
@@ -45,43 +50,40 @@ public class NewTimeRecordController implements Initializable, ViewController {
 
 	// This method is called by the FXMLLoader when initialization is complete
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-		assert aspect != null : "fx:id=\"aspect\" was not injected: check your FXML file 'NewTimeRecord.fxml'.";
-		assert cancel != null : "fx:id=\"cancel\" was not injected: check your FXML file 'NewTimeRecord.fxml'.";
-		assert coloniesLabel != null : "fx:id=\"coloniesLabel\" was not injected: check your FXML file 'NewTimeRecord.fxml'.";
-		assert hours != null : "fx:id=\"hours\" was not injected: check your FXML file 'NewTimeRecord.fxml'.";
-		assert ok != null : "fx:id=\"ok\" was not injected: check your FXML file 'NewTimeRecord.fxml'.";
-
-		aspect.setCellFactory(new Callback<ListView<Aspect>, ListCell<Aspect>>() {
-
-			public ListCell<Aspect> call(ListView<Aspect> arg0) {
-				final ListCell<Aspect> cell = new ListCell<Aspect>() {
-					{
-						super.setPrefWidth(100);
-					}
-
-					@Override
-					public void updateItem(Aspect item, boolean empty) {
-						super.updateItem(item, empty);
-						if (item != null) {
-							setText(item.getName());
-						}
-					}
-				};
-				return cell;
-			}
-		});
 
 	}
 
 	@FXML
 	public void ok() {
-		String hoursText = hours.getText();
-		// TODO Validieren
-		TimeRecord newRecord = new TimeRecord((Aspect) aspect
-				.getSelectionModel().getSelectedItem(),
-				Integer.parseInt(hoursText));
 
-		dao.addNewTimeRecord(newRecord);
+		DayRecord dailyRecord = new DayRecord();
+
+		if (!careerHours.getText().isEmpty()) {
+			TimeRecord careerRecord = new TimeRecord(Aspect.CAREER,
+					Integer.parseInt(careerHours.getText()));
+			dailyRecord.addTimeRecord(careerRecord);
+		}
+
+		if (!familyHours.getText().isEmpty()) {
+			TimeRecord familyRecord = new TimeRecord(Aspect.FAMILY,
+					Integer.parseInt(familyHours.getText()));
+			dailyRecord.addTimeRecord(familyRecord);
+		}
+
+		if (!healthHours.getText().isEmpty()) {
+			TimeRecord healthRecord = new TimeRecord(Aspect.HEALTH,
+					Integer.parseInt(healthHours.getText()));
+			dailyRecord.addTimeRecord(healthRecord);
+		}
+
+		if (!youHours.getText().isEmpty()) {
+			TimeRecord youRecord = new TimeRecord(Aspect.YOU,
+					Integer.parseInt(youHours.getText()));
+			dailyRecord.addTimeRecord(youRecord);
+
+		}
+
+		dao.addNewDayRecord(dailyRecord);
 
 		component.bubbleDataChanged(component);
 
@@ -100,7 +102,6 @@ public class NewTimeRecordController implements Initializable, ViewController {
 
 	public void setDao(NewTimeRecordDao dao) {
 		this.dao = dao;
-		aspect.setItems(dao.getAllAspects());
 	}
 
 	public void notifyDataChanged(Component component) {
