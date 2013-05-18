@@ -88,6 +88,11 @@ public class NewTimeRecordController implements Initializable, ViewController {
 		component.getGroup().getChildren().remove(component.getView());
 	}
 
+	@FXML
+	public void cancel() {
+		component.getGroup().getChildren().remove(component.getView());
+	}
+
 	public void setComponent(Component component) {
 		this.component = component;
 

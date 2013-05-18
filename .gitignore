@@ -1,4 +1,5 @@
+*.fxml.bak
+
 /bin
 /target
 
-*.fxml.bak
