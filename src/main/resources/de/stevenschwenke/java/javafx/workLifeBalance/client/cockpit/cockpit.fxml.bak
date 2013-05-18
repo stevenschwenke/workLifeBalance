@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController">
+  <children>
+    <PieChart id="PieChart" fx:id="pieChart" layoutX="50.0" layoutY="74.0" title="" />
+    <Button fx:id="add" layoutX="50.0" layoutY="37.0" mnemonicParsing="false" onAction="#add" text="Button" />
+    <Label layoutX="251.0" layoutY="21.0" text="Work-Life-Balance" />
+  </children>
+</AnchorPane>

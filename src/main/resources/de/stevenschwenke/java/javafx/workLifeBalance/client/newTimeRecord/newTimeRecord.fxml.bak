@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<TitledPane animated="false" collapsible="false" contentDisplay="CENTER" minWidth="179.0" prefHeight="167.5" prefWidth="222.0" text="What did you do?" xmlns:fx="http://javafx.com/fxml" fx:controller="de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController">
+  <content>
+    <AnchorPane id="AnchorPane" minHeight="16.0" prefHeight="143.5" prefWidth="227.0">
+      <children>
+        <Label id="testlabel" fx:id="coloniesLabel" layoutX="6.0" layoutY="32.0" text="Aspect:" />
+        <ChoiceBox fx:id="aspect" layoutX="90.0" layoutY="27.0" prefWidth="101.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Label layoutX="6.0" layoutY="60.0" text="Hours" />
+        <TextField fx:id="hours" layoutX="90.0" layoutY="57.0" prefWidth="101.0" />
+        <Button fx:id="ok" layoutX="154.0" layoutY="97.0" mnemonicParsing="false" onAction="#ok" text="OK" />
+        <Button fx:id="cancel" layoutX="78.0" layoutY="97.0" mnemonicParsing="false" text="Cancel" />
+      </children>
+    </AnchorPane>
+  </content>
+</TitledPane>
