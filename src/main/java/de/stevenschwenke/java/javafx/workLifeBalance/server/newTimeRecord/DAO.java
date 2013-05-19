@@ -80,8 +80,61 @@ public class DAO implements NewTimeRecordDao {
 		return result;
 	}
 
+	public Long calculateOverallpoints(DayRecord dayRecord) {
+		if (dayRecord.getTimeRecordsToday().isEmpty())
+			return 0L;
+		return 100L - calculateMalus(dayRecord) + calculateBonus(dayRecord);
+	}
+
+	/**
+	 * Calculates the biggest <b>relative</b> deviation in time between the
+	 * {@TimeRecord}s of a given {@link DayRecord}. For example the
+	 * biggest deviation between the hours (1,1,1,9) is (9-1)/12 = 0.66. Hence,
+	 * the deviation calculated by this method is always greater equal 0 and
+	 * less equal 1.
+	 * 
+	 * @param dayRecord
+	 * @return biggest deviation
+	 */
+	Double calculateBiggestRelativeDeviation(DayRecord dayRecord) {
+		int total = 0;
+		int biggestHour = 0;
+		int smallestHour = 25;
+
+		for (TimeRecord tr : dayRecord.getTimeRecordsToday()) {
+			total += tr.getHours();
+
+			if (tr.getHours() > biggestHour)
+				biggestHour = tr.getHours();
+
+			if (tr.getHours() < smallestHour)
+				smallestHour = tr.getHours();
+		}
+
+		return ((biggestHour - smallestHour) / (double) total);
+	}
+
+	int calculateAmountOfZeros(DayRecord dayRecord) {
+		return 0;
+	}
+
+	Long calculateMalus(DayRecord dayRecord) {
+		return (long) (calculateBiggestRelativeDeviation(dayRecord) * 50 + calculateAmountOfZeros(dayRecord)
+				* (50 / 3));
+	}
+
+	Long calculateBonus(DayRecord dayRecord) {
+		return 0L;
+	}
+
+	@Override
 	public Long calculateOverallpoints() {
 
-		return 0L;
+		Long sum = 0L;
+
+		for (DayRecord dr : dayRecords) {
+			sum += calculateOverallpoints(dr);
+		}
+		return sum;
 	}
 }

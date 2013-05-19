@@ -12,7 +12,7 @@
             <key for="edge" attr.type="string" id="d9" attr.name="description"></key>
             <key for="edge" id="d10" yfiles.type="edgegraphics"></key>
             <graph edgedefault="directed" id="G">
-                <node id="ParentAwareNode(List(SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+                <node id="ParentAwareNode(List(SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -41,8 +41,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene1,server)))">
-                <node id="ParentAwareNode(List(SimpleNode(ebene2,Start), SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level1,server)))">
+                <node id="ParentAwareNode(List(SimpleNode(level2,Start), SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -71,8 +71,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,Start), SimpleNode(ebene1,server)))">
-                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(ebene2,Start), SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,Start), SimpleNode(level1,server)))">
+                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(level2,Start), SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -101,8 +101,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(ebene2,Start), SimpleNode(ebene1,server)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(ebene2,Start), SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(level2,Start), SimpleNode(level1,server)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(level2,Start), SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -131,7 +131,7 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(ebene2,Start), SimpleNode(ebene1,server)))">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start), SimpleNode(level2,Start), SimpleNode(level1,server)))">
                 <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)">
                                                                                        <data key="d5"></data>
                                                                                        <data key="d6">
@@ -148,7 +148,7 @@
             </graph>
         </node>
             </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,newTimeRecord), SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -177,8 +177,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,server)))">
-                <node id="ParentAwareNode(List(SimpleNode(ebene3,DAO), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,newTimeRecord), SimpleNode(level1,server)))">
+                <node id="ParentAwareNode(List(SimpleNode(level3,DAO), SimpleNode(level2,newTimeRecord), SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -207,8 +207,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene3,DAO), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,server)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord), SimpleNode(ebene3,DAO), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,server)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level3,DAO), SimpleNode(level2,newTimeRecord), SimpleNode(level1,server)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord), SimpleNode(level3,DAO), SimpleNode(level2,newTimeRecord), SimpleNode(level1,server)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -237,7 +237,7 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord), SimpleNode(ebene3,DAO), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,server)))">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord), SimpleNode(level3,DAO), SimpleNode(level2,newTimeRecord), SimpleNode(level1,server)))">
                 <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)">
                                                                                        <data key="d5"></data>
                                                                                        <data key="d6">
@@ -256,7 +256,7 @@
             </graph>
         </node>
             </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+        </node><node id="ParentAwareNode(List(SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -285,8 +285,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(ebene2,Component), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(level2,Component), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -315,8 +315,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,Component), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(ebene2,Component), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,Component), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(level2,Component), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -345,8 +345,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(ebene2,Component), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(ebene2,Component), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(level2,Component), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(level2,Component), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -375,7 +375,7 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(ebene2,Component), SimpleNode(ebene1,client)))">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component), SimpleNode(level2,Component), SimpleNode(level1,client)))">
                 <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component)">
                                                                                        <data key="d5"></data>
                                                                                        <data key="d6">
@@ -392,547 +392,7 @@
             </graph>
         </node>
             </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,Aspect[]), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">Aspect[]</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">Aspect[]</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,Aspect[]), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[]), SimpleNode(ebene2,Aspect[]), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[]</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[]</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[]), SimpleNode(ebene2,Aspect[]), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[]), SimpleNode(ebene2,Aspect[]), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[]), SimpleNode(ebene2,Aspect[]), SimpleNode(ebene1,client)))">
-                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[])">
-                                                                                       <data key="d5"></data>
-                                                                                       <data key="d6">
-                                                                                           <y:ShapeNode>
-                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
-                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">Aspect[]</y:NodeLabel>
-                                                                                               <y:Shape type="rectangle"></y:Shape>
-                                                                                           </y:ShapeNode>
-                                                                                       </data>
-                                                                                   </node>
-            </graph>
-        </node>
-            </graph>
-        </node>
-            </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,cockpit), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">cockpit</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">cockpit</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,cockpit), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(ebene3,CockpitController), SimpleNode(ebene2,cockpit), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">CockpitController</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">CockpitController</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene3,CockpitController), SimpleNode(ebene2,cockpit), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit), SimpleNode(ebene3,CockpitController), SimpleNode(ebene2,cockpit), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit), SimpleNode(ebene3,CockpitController), SimpleNode(ebene2,cockpit), SimpleNode(ebene1,client)))">
-                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController)">
-                                                                                       <data key="d5"></data>
-                                                                                       <data key="d6">
-                                                                                           <y:ShapeNode>
-                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
-                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">CockpitController</y:NodeLabel>
-                                                                                               <y:Shape type="rectangle"></y:Shape>
-                                                                                           </y:ShapeNode>
-                                                                                       </data>
-                                                                                   </node>
-            </graph>
-        </node>
-            </graph>
-        </node>
-            </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,Aspect), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">Aspect</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">Aspect</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,Aspect), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(ebene2,Aspect), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(ebene2,Aspect), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(ebene2,Aspect), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(ebene2,Aspect), SimpleNode(ebene1,client)))">
-                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)">
-                                                                                       <data key="d5"></data>
-                                                                                       <data key="d6">
-                                                                                           <y:ShapeNode>
-                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
-                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">Aspect</y:NodeLabel>
-                                                                                               <y:Shape type="rectangle"></y:Shape>
-                                                                                           </y:ShapeNode>
-                                                                                       </data>
-                                                                                   </node>
-            </graph>
-        </node>
-            </graph>
-        </node>
-            </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">newTimeRecord</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#80A830"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">newTimeRecord</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(ebene3,NewTimeRecordController), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene3,NewTimeRecordController), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(ebene3,NewTimeRecordController), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(ebene3,NewTimeRecordController), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))">
-                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#99DF0C"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#99DF0C"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)">
-                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1)">
-                                                                                       <data key="d5"></data>
-                                                                                       <data key="d6">
-                                                                                           <y:ShapeNode>
-                                                                                               <y:Fill transparent="false" color="#80A830"></y:Fill>
-                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">1</y:NodeLabel>
-                                                                                               <y:Shape type="rectangle"></y:Shape>
-                                                                                           </y:ShapeNode>
-                                                                                       </data>
-                                                                                   </node><node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)">
-                                                                                       <data key="d5"></data>
-                                                                                       <data key="d6">
-                                                                                           <y:ShapeNode>
-                                                                                               <y:Fill transparent="false" color="#80A830"></y:Fill>
-                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">1$1</y:NodeLabel>
-                                                                                               <y:Shape type="rectangle"></y:Shape>
-                                                                                           </y:ShapeNode>
-                                                                                       </data>
-                                                                                   </node>
-            </graph>
-        </node>
-            </graph>
-        </node>
-            </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene3,NewTimeRecordDao), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordDao</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#639204"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordDao</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene3,NewTimeRecordDao), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(ebene3,NewTimeRecordDao), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
-            <data key="d4"></data>
-            <data key="d5"></data>
-            <data key="d6">
-                <y:ProxyAutoBoundsNode>
-                    <y:Realizers active="1">
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
-                        </y:GroupNode>
-                        <y:GroupNode>
-                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
-                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
-                            <y:Shape type="rectangle"></y:Shape>
-                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
-                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
-                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
-                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
-                        </y:GroupNode>
-                    </y:Realizers>
-                </y:ProxyAutoBoundsNode>
-            </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(ebene3,NewTimeRecordDao), SimpleNode(ebene2,newTimeRecord), SimpleNode(ebene1,client)))">
-                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)">
-                                                                                       <data key="d5"></data>
-                                                                                       <data key="d6">
-                                                                                           <y:ShapeNode>
-                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
-                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">NewTimeRecordDao</y:NodeLabel>
-                                                                                               <y:Shape type="rectangle"></y:Shape>
-                                                                                           </y:ShapeNode>
-                                                                                       </data>
-                                                                                   </node>
-            </graph>
-        </node>
-            </graph>
-        </node>
-            </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,ViewController), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,ViewController), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -961,8 +421,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,ViewController), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(ebene2,ViewController), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,ViewController), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(level2,ViewController), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -991,8 +451,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(ebene2,ViewController), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(ebene2,ViewController), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(level2,ViewController), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(level2,ViewController), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -1021,7 +481,7 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(ebene2,ViewController), SimpleNode(ebene1,client)))">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController), SimpleNode(level2,ViewController), SimpleNode(level1,client)))">
                 <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController)">
                                                                                        <data key="d5"></data>
                                                                                        <data key="d6">
@@ -1038,7 +498,7 @@
             </graph>
         </node>
             </graph>
-        </node><node id="ParentAwareNode(List(SimpleNode(ebene2,TimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,DayRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -1047,7 +507,7 @@
                         <y:GroupNode>
                             <y:Fill transparent="false" color="#80A830"></y:Fill>
                             <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">TimeRecord</y:NodeLabel>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">DayRecord</y:NodeLabel>
                             <y:Shape type="rectangle"></y:Shape>
                             <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
                             <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
@@ -1057,7 +517,7 @@
                         <y:GroupNode>
                             <y:Fill transparent="false" color="#80A830"></y:Fill>
                             <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">TimeRecord</y:NodeLabel>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">DayRecord</y:NodeLabel>
                             <y:Shape type="rectangle"></y:Shape>
                             <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
                             <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
@@ -1067,8 +527,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(ebene2,TimeRecord), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(ebene2,TimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,DayRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord), SimpleNode(level2,DayRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -1077,7 +537,7 @@
                         <y:GroupNode>
                             <y:Fill transparent="false" color="#639204"></y:Fill>
                             <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord</y:NodeLabel>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord</y:NodeLabel>
                             <y:Shape type="rectangle"></y:Shape>
                             <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
                             <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
@@ -1087,7 +547,7 @@
                         <y:GroupNode>
                             <y:Fill transparent="false" color="#639204"></y:Fill>
                             <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
-                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord</y:NodeLabel>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord</y:NodeLabel>
                             <y:Shape type="rectangle"></y:Shape>
                             <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
                             <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
@@ -1097,8 +557,8 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(ebene2,TimeRecord), SimpleNode(ebene1,client)))">
-                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(ebene2,TimeRecord), SimpleNode(ebene1,client)))" yfiles.foldertype="folder">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord), SimpleNode(level2,DayRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord), SimpleNode(level2,DayRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
             <data key="d4"></data>
             <data key="d5"></data>
             <data key="d6">
@@ -1127,7 +587,325 @@
                     </y:Realizers>
                 </y:ProxyAutoBoundsNode>
             </data>
-            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(ebene2,TimeRecord), SimpleNode(ebene1,client)))">
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord), SimpleNode(level2,DayRecord), SimpleNode(level1,client)))">
+                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)">
+                                                                                       <data key="d5"></data>
+                                                                                       <data key="d6">
+                                                                                           <y:ShapeNode>
+                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
+                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">DayRecord</y:NodeLabel>
+                                                                                               <y:Shape type="rectangle"></y:Shape>
+                                                                                           </y:ShapeNode>
+                                                                                       </data>
+                                                                                   </node>
+            </graph>
+        </node>
+            </graph>
+        </node>
+            </graph>
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,cockpit), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">cockpit</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">cockpit</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,cockpit), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(level3,CockpitController), SimpleNode(level2,cockpit), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">CockpitController</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">CockpitController</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level3,CockpitController), SimpleNode(level2,cockpit), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit), SimpleNode(level3,CockpitController), SimpleNode(level2,cockpit), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit), SimpleNode(level3,CockpitController), SimpleNode(level2,cockpit), SimpleNode(level1,client)))">
+                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController)">
+                                                                                       <data key="d5"></data>
+                                                                                       <data key="d6">
+                                                                                           <y:ShapeNode>
+                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
+                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">CockpitController</y:NodeLabel>
+                                                                                               <y:Shape type="rectangle"></y:Shape>
+                                                                                           </y:ShapeNode>
+                                                                                       </data>
+                                                                                   </node>
+            </graph>
+        </node>
+            </graph>
+        </node>
+            </graph>
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,Aspect), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">Aspect</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">Aspect</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,Aspect), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(level2,Aspect), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(level2,Aspect), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(level2,Aspect), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect), SimpleNode(level2,Aspect), SimpleNode(level1,client)))">
+                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)">
+                                                                                       <data key="d5"></data>
+                                                                                       <data key="d6">
+                                                                                           <y:ShapeNode>
+                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
+                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">Aspect</y:NodeLabel>
+                                                                                               <y:Shape type="rectangle"></y:Shape>
+                                                                                           </y:ShapeNode>
+                                                                                       </data>
+                                                                                   </node>
+            </graph>
+        </node>
+            </graph>
+        </node>
+            </graph>
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,TimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">TimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">TimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,TimeRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(level2,TimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(level2,TimeRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(level2,TimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client), SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord), SimpleNode(level2,TimeRecord), SimpleNode(level1,client)))">
                 <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)">
                                                                                        <data key="d5"></data>
                                                                                        <data key="d6">
@@ -1135,6 +913,186 @@
                                                                                                <y:Fill transparent="false" color="#99DF0C"></y:Fill>
                                                                                                <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
                                                                                                <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">TimeRecord</y:NodeLabel>
+                                                                                               <y:Shape type="rectangle"></y:Shape>
+                                                                                           </y:ShapeNode>
+                                                                                       </data>
+                                                                                   </node>
+            </graph>
+        </node>
+            </graph>
+        </node>
+            </graph>
+        </node><node id="ParentAwareNode(List(SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">newTimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#80A830"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">newTimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(level3,NewTimeRecordController), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level3,NewTimeRecordController), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(level3,NewTimeRecordController), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(level3,NewTimeRecordController), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))">
+                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)">
+                                                                                       <data key="d5"></data>
+                                                                                       <data key="d6">
+                                                                                           <y:ShapeNode>
+                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
+                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">NewTimeRecordController</y:NodeLabel>
+                                                                                               <y:Shape type="rectangle"></y:Shape>
+                                                                                           </y:ShapeNode>
+                                                                                       </data>
+                                                                                   </node>
+            </graph>
+        </node>
+            </graph>
+        </node><node id="ParentAwareNode(List(SimpleNode(level3,NewTimeRecordDao), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordDao</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#639204"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">NewTimeRecordDao</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(level3,NewTimeRecordDao), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))">
+                <node id="ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(level3,NewTimeRecordDao), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))" yfiles.foldertype="folder">
+            <data key="d4"></data>
+            <data key="d5"></data>
+            <data key="d6">
+                <y:ProxyAutoBoundsNode>
+                    <y:Realizers active="1">
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="false"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="48.9443359375" leftF="50.5" right="49" bottom="14" topF="4.7470703125" top="5" bottomF="14.0" left="51"></y:BorderInsets>
+                        </y:GroupNode>
+                        <y:GroupNode>
+                            <y:Fill transparent="false" color="#B6EE44"></y:Fill>
+                            <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                            <y:NodeLabel autoSizePolicy="node_width" alignment="right" borderDistance="0.0" modelName="internal" modelPosition="t" backgroundColor="#F7F774" textColor="#000000" fontStyle="plain" x="0.0" fontSize="15" fontFamily="Dialog" y="0.0" hasLineColor="false" visible="true">de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord</y:NodeLabel>
+                            <y:Shape type="rectangle"></y:Shape>
+                            <y:DropShadow offsetY="4" offsetX="4" color="#D2D2D2"></y:DropShadow>
+                            <y:State innerGraphDisplayEnabled="false" closed="true"></y:State>
+                            <y:Insets rightF="15.0" leftF="15.0" right="15" bottom="15" topF="15.0" top="15" bottomF="15.0" left="15"></y:Insets>
+                            <y:BorderInsets rightF="0.0" leftF="0.0" right="0" bottom="0" topF="0.0" top="0" bottomF="0.0" left="0"></y:BorderInsets>
+                        </y:GroupNode>
+                    </y:Realizers>
+                </y:ProxyAutoBoundsNode>
+            </data>
+            <graph edgedefault="directed" id="G:ParentAwareNode(List(SimpleNode(Package,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord), SimpleNode(level3,NewTimeRecordDao), SimpleNode(level2,newTimeRecord), SimpleNode(level1,client)))">
+                <node id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)">
+                                                                                       <data key="d5"></data>
+                                                                                       <data key="d6">
+                                                                                           <y:ShapeNode>
+                                                                                               <y:Fill transparent="false" color="#99DF0C"></y:Fill>
+                                                                                               <y:BorderStyle width="1.0" type="line" color="#000000"></y:BorderStyle>
+                                                                                               <y:NodeLabel autoSizePolicy="content" alignment="center" modelName="internal" modelPosition="c" textColor="#000000" fontStyle="plain" x="-33.359375" fontSize="12" fontFamily="Dialog" hasLineColor="false" y="5.6494140625" hasBackgroundColor="false" visible="true">NewTimeRecordDao</y:NodeLabel>
                                                                                                <y:Shape type="rectangle"></y:Shape>
                                                                                            </y:ShapeNode>
                                                                                        </data>
@@ -1155,14 +1113,6 @@
                     <y:BendStyle smoothed="true"></y:BendStyle>
                 </y:PolyLineEdge>
             </data>
-        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)">
-            <data key="d10">
-                <y:PolyLineEdge>
-                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
-                    <y:Arrows source="none" target="standard"></y:Arrows>
-                    <y:BendStyle smoothed="true"></y:BendStyle>
-                </y:PolyLineEdge>
-            </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)">
             <data key="d10">
                 <y:PolyLineEdge>
@@ -1172,14 +1122,6 @@
                 </y:PolyLineEdge>
             </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController)">
-            <data key="d10">
-                <y:PolyLineEdge>
-                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
-                    <y:Arrows source="none" target="standard"></y:Arrows>
-                    <y:BendStyle smoothed="true"></y:BendStyle>
-                </y:PolyLineEdge>
-            </data>
-        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)">
             <data key="d10">
                 <y:PolyLineEdge>
                     <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
@@ -1219,6 +1161,14 @@
                     <y:BendStyle smoothed="true"></y:BendStyle>
                 </y:PolyLineEdge>
             </data>
+        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)">
+            <data key="d10">
+                <y:PolyLineEdge>
+                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
+                    <y:Arrows source="none" target="standard"></y:Arrows>
+                    <y:BendStyle smoothed="true"></y:BendStyle>
+                </y:PolyLineEdge>
+            </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController)">
             <data key="d10">
                 <y:PolyLineEdge>
@@ -1228,6 +1178,14 @@
                 </y:PolyLineEdge>
             </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)">
+            <data key="d10">
+                <y:PolyLineEdge>
+                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
+                    <y:Arrows source="none" target="standard"></y:Arrows>
+                    <y:BendStyle smoothed="true"></y:BendStyle>
+                </y:PolyLineEdge>
+            </data>
+        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)">
             <data key="d10">
                 <y:PolyLineEdge>
                     <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
@@ -1251,14 +1209,6 @@
                     <y:BendStyle smoothed="true"></y:BendStyle>
                 </y:PolyLineEdge>
             </data>
-        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[])" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect[])">
-            <data key="d10">
-                <y:PolyLineEdge>
-                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
-                    <y:Arrows source="none" target="standard"></y:Arrows>
-                    <y:BendStyle smoothed="true"></y:BendStyle>
-                </y:PolyLineEdge>
-            </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect)">
             <data key="d10">
                 <y:PolyLineEdge>
@@ -1268,22 +1218,6 @@
                 </y:PolyLineEdge>
             </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)">
-            <data key="d10">
-                <y:PolyLineEdge>
-                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
-                    <y:Arrows source="none" target="standard"></y:Arrows>
-                    <y:BendStyle smoothed="true"></y:BendStyle>
-                </y:PolyLineEdge>
-            </data>
-        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)">
-            <data key="d10">
-                <y:PolyLineEdge>
-                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
-                    <y:Arrows source="none" target="standard"></y:Arrows>
-                    <y:BendStyle smoothed="true"></y:BendStyle>
-                </y:PolyLineEdge>
-            </data>
-        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1$1)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController$1)">
             <data key="d10">
                 <y:PolyLineEdge>
                     <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
@@ -1323,6 +1257,14 @@
                     <y:BendStyle smoothed="true"></y:BendStyle>
                 </y:PolyLineEdge>
             </data>
+        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord)">
+            <data key="d10">
+                <y:PolyLineEdge>
+                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
+                    <y:Arrows source="none" target="standard"></y:Arrows>
+                    <y:BendStyle smoothed="true"></y:BendStyle>
+                </y:PolyLineEdge>
+            </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.Component)">
             <data key="d10">
                 <y:PolyLineEdge>
@@ -1332,6 +1274,14 @@
                 </y:PolyLineEdge>
             </data>
         </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.Start)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao)">
+            <data key="d10">
+                <y:PolyLineEdge>
+                    <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
+                    <y:Arrows source="none" target="standard"></y:Arrows>
+                    <y:BendStyle smoothed="true"></y:BendStyle>
+                </y:PolyLineEdge>
+            </data>
+        </edge><edge source="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)" id="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO)::SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)" target="SimpleNode(Class,de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord)">
             <data key="d10">
                 <y:PolyLineEdge>
                     <y:LineStyle width="1.0" type="line" color="#000000"></y:LineStyle>
