@@ -114,13 +114,8 @@ public class DAO implements NewTimeRecordDao {
 		return ((biggestHour - smallestHour) / (double) total);
 	}
 
-	int calculateAmountOfZeros(DayRecord dayRecord) {
-		return 0;
-	}
-
 	Long calculateMalus(DayRecord dayRecord) {
-		return (long) (calculateBiggestRelativeDeviation(dayRecord) * 50 + calculateAmountOfZeros(dayRecord)
-				* (50 / 3));
+		return (long) (calculateBiggestRelativeDeviation(dayRecord) * 100);
 	}
 
 	Long calculateBonus(DayRecord dayRecord) {
@@ -129,12 +124,50 @@ public class DAO implements NewTimeRecordDao {
 
 	@Override
 	public Long calculateOverallpoints() {
+		// To calculate the overall points, all records have to be aggregated
+		// into one record that is then used to calculate the points. Another
+		// way would be to sum the points for each record and divide it by the
+		// number of records. However, that would result in a strange behavior.
 
-		Long sum = 0L;
+		DayRecord totalRecord = sumUpRecords(dayRecords);
+		return calculateOverallpoints(totalRecord);
+
+	}
+
+	/**
+	 * Sums the value of all given {@link DayRecord}s into one {@link DayRecord}
+	 * .
+	 * 
+	 * @param dayRecords
+	 *            that should be summed up
+	 * @return Record with the sum of all given records
+	 */
+	private DayRecord sumUpRecords(List<DayRecord> dayRecords) {
+		int healthTotal = 0;
+		int careerTotal = 0;
+		int familyTotal = 0;
+		int youTotal = 0;
 
 		for (DayRecord dr : dayRecords) {
-			sum += calculateOverallpoints(dr);
+			for (TimeRecord tr : dr.getTimeRecordsToday()) {
+				if (tr.getAspect().equals(Aspect.CAREER))
+					careerTotal += tr.getHours();
+
+				if (tr.getAspect().equals(Aspect.FAMILY))
+					familyTotal += tr.getHours();
+
+				if (tr.getAspect().equals(Aspect.HEALTH))
+					healthTotal += tr.getHours();
+
+				if (tr.getAspect().equals(Aspect.YOU))
+					youTotal += tr.getHours();
+			}
 		}
-		return sum;
+		DayRecord totalRecord = new DayRecord();
+		totalRecord.addTimeRecord(new TimeRecord(Aspect.HEALTH, healthTotal));
+		totalRecord.addTimeRecord(new TimeRecord(Aspect.CAREER, careerTotal));
+		totalRecord.addTimeRecord(new TimeRecord(Aspect.FAMILY, familyTotal));
+		totalRecord.addTimeRecord(new TimeRecord(Aspect.YOU, youTotal));
+		return totalRecord;
 	}
 }

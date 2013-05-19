@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
@@ -84,7 +82,6 @@ public class DAOTest {
 
 		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
-		doReturn(0).when(dao).calculateAmountOfZeros(any(DayRecord.class));
 
 		assertEquals(new Long(0), dao.calculateMalus(new DayRecord()));
 	}
@@ -95,11 +92,8 @@ public class DAOTest {
 
 		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
-		doReturn(3).when(dao).calculateAmountOfZeros(any(DayRecord.class));
 
-		Long result = (long) (1 * 50 + 3 * (50 / 3));
-
-		assertEquals(result, dao.calculateMalus(new DayRecord()));
+		assertEquals(new Long(100), dao.calculateMalus(new DayRecord()));
 	}
 
 	@Test
@@ -108,11 +102,8 @@ public class DAOTest {
 
 		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
-		when(dao.calculateAmountOfZeros(any(DayRecord.class))).thenReturn(1);
 
-		Long result = (long) (0.5 * 50 + 1 * (50 / 3));
-
-		assertEquals(result, dao.calculateMalus(new DayRecord()));
+		assertEquals(new Long(50), dao.calculateMalus(new DayRecord()));
 	}
 
 	// //////////////////////////////////////////////////////////
@@ -167,40 +158,4 @@ public class DAOTest {
 				mock.calculateOverallpoints(fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero));
 	}
 
-	// //////////////////////////////////////////////////////////
-	// Computing of overall points of all records of the player
-	// //////////////////////////////////////////////////////////
-
-	@Test
-	public void calculationOfOverallPointsIncludesAllRecords() {
-		DAO dao = spy(new DAO());
-
-		DayRecord dr1 = spy(new DayRecord());
-		dr1.addTimeRecord(new TimeRecord(Aspect.CAREER, 12));
-		dao.addNewDayRecord(dr1);
-		DayRecord dr2 = spy(new DayRecord());
-		dr2.addTimeRecord(new TimeRecord(Aspect.CAREER, 12));
-		dao.addNewDayRecord(dr2);
-
-		dao.calculateOverallpoints();
-
-		verify(dr1, times(2)).getTimeRecordsToday();
-	}
-
-	@Test
-	public void calculationOfOverallPointsGivesCorrectSum() {
-		DAO dao = spy(new DAO());
-
-		DayRecord dr1 = spy(new DayRecord());
-		dr1.addTimeRecord(new TimeRecord(Aspect.CAREER, 12));
-		dao.addNewDayRecord(dr1);
-		DayRecord dr2 = spy(new DayRecord());
-		dr2.addTimeRecord(new TimeRecord(Aspect.CAREER, 12));
-		dao.addNewDayRecord(dr2);
-
-		when(dao.calculateOverallpoints(dr1)).thenReturn((long) 3);
-		when(dao.calculateOverallpoints(dr2)).thenReturn((long) 4);
-
-		assertEquals(new Long(7), dao.calculateOverallpoints());
-	}
 }
