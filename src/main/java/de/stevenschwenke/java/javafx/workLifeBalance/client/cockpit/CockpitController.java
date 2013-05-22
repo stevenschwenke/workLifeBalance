@@ -18,6 +18,8 @@ import org.apache.log4j.Logger;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarController;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarDao;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao;
 
@@ -29,6 +31,8 @@ public class CockpitController implements Initializable, ViewController {
 	private Component component;
 
 	private NewTimeRecordDao dao;
+
+	private CalendarDao calendarDao;
 
 	private ObservableList<PieChart.Data> pieChartData;
 
@@ -43,6 +47,10 @@ public class CockpitController implements Initializable, ViewController {
 	@FXML
 	// fx:id="add"
 	private Button add; // Value injected by FXMLLoader
+
+	@FXML
+	// fx:id="calendar"
+	private Button calendar; // Value injected by FXMLLoader
 
 	@FXML
 	// fx:id="points"
@@ -83,6 +91,15 @@ public class CockpitController implements Initializable, ViewController {
 		newTimeRecordController.setDao(dao);
 	}
 
+	// Handler for Button[fx:id="calendar"] onAction
+	public void calendar(ActionEvent event) {
+		Component calendarComponent = new Component(component,
+				"calendar/calendar.fxml", component.getGroup());
+		CalendarController calendarController = (CalendarController) calendarComponent
+				.getViewController();
+		calendarController.setDao(calendarDao);
+	}
+
 	public void setComponent(Component component) {
 		this.component = component;
 
@@ -90,6 +107,10 @@ public class CockpitController implements Initializable, ViewController {
 
 	public void setDao(NewTimeRecordDao dao) {
 		this.dao = dao;
+	}
+
+	public void setCalendarDao(CalendarDao calendarDao) {
+		this.calendarDao = calendarDao;
 	}
 
 	public void notifyDataChanged(Component component) {

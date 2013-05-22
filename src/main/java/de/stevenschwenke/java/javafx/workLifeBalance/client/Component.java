@@ -15,8 +15,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 /**
- * Represents a user interface component. Wrapper class for the {@link Node} and
- * its {@link ViewController}.
+ * Represents a user interface component. Wrapper class for the {@link Node},
+ * its {@link ViewController} and the specialized data access object.
  * 
  * @author Steven Schwenke
  * 

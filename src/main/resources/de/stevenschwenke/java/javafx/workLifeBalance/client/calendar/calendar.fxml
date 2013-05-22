@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="516.0" style="-fx-background-color:white;&#10;-fx-border-color:black" xmlns:fx="http://javafx.com/fxml" fx:controller="de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarController">
+  <children>
+    <Button layoutX="393.0" layoutY="294.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+    <Button layoutX="465.0" layoutY="294.0" mnemonicParsing="false" onAction="#ok" text="OK" />
+    <LineChart id="LineChart" fx:id="chart" layoutX="38.0" layoutY="20.0" prefHeight="262.0" prefWidth="450.0">
+      <xAxis>
+        <CategoryAxis side="BOTTOM">
+          <categories>
+            <FXCollections fx:factory="observableArrayList" />
+          </categories>
+        </CategoryAxis>
+      </xAxis>
+      <yAxis>
+        <NumberAxis side="LEFT" />
+      </yAxis>
+    </LineChart>
+  </children>
+</AnchorPane>

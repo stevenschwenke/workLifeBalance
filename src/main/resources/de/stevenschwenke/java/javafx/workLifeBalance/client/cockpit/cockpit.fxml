@@ -13,5 +13,6 @@
     <Button fx:id="add" layoutX="50.0" layoutY="37.0" mnemonicParsing="false" onAction="#add" text="Add Activity" />
     <Label layoutX="251.0" layoutY="21.0" text="Work-Life-Balance" />
     <Label fx:id="points" layoutX="522.0" layoutY="40.0" text="0" />
+    <Button id="calendarBtn" fx:id="calendar" layoutX="154.0" layoutY="38.0" mnemonicParsing="false" onAction="#calendar" text="Calendar" />
   </children>
 </AnchorPane>

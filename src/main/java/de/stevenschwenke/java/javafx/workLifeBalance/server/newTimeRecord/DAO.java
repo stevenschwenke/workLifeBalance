@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarDao;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao;
 
 /**
@@ -17,7 +18,8 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTim
  * @author Steven Schwenke
  * 
  */
-public class DAO implements NewTimeRecordDao {
+public class DAO implements NewTimeRecordDao, CalendarDao {
+
 	private static Logger log = LogManager.getLogger(DAO.class.getName());
 
 	private List<DayRecord> dayRecords;
@@ -169,5 +171,10 @@ public class DAO implements NewTimeRecordDao {
 		totalRecord.addTimeRecord(new TimeRecord(Aspect.FAMILY, familyTotal));
 		totalRecord.addTimeRecord(new TimeRecord(Aspect.YOU, youTotal));
 		return totalRecord;
+	}
+
+	@Override
+	public List<DayRecord> getAllDayRecords() {
+		return dayRecords;
 	}
 }

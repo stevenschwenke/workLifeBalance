@@ -47,6 +47,7 @@ public class Start extends Application {
 				.getViewController();
 
 		cockpitController.setDao(dao);
+		cockpitController.setCalendarDao(dao);
 	}
 
 	@Override
@@ -67,5 +68,3 @@ public class Start extends Application {
 
 	}
 }
-
-// TODO Overall-Points: Deviation from 25-25-25-25
