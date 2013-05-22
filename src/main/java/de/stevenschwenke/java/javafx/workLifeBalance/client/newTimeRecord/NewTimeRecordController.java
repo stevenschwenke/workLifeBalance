@@ -1,6 +1,7 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -56,7 +57,7 @@ public class NewTimeRecordController implements Initializable, ViewController {
 	@FXML
 	public void ok() {
 
-		DayRecord dailyRecord = new DayRecord();
+		DayRecord dailyRecord = new DayRecord(new Date());
 
 		if (!careerHours.getText().isEmpty()) {
 			TimeRecord careerRecord = new TimeRecord(Aspect.CAREER,

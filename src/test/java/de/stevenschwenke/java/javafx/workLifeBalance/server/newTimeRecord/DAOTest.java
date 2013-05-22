@@ -6,6 +6,8 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +35,7 @@ public class DAOTest {
 
 	@Test
 	public void recognizeBiggestDeviationOfZero() {
-		DayRecord dr = new DayRecord();
+		DayRecord dr = new DayRecord(new Date());
 		dr.addTimeRecord(new TimeRecord(Aspect.CAREER, 3));
 		dr.addTimeRecord(new TimeRecord(Aspect.FAMILY, 3));
 		dr.addTimeRecord(new TimeRecord(Aspect.HEALTH, 3));
@@ -44,7 +46,7 @@ public class DAOTest {
 
 	@Test
 	public void recognizeBiggestDeviationOfOne() {
-		DayRecord dr = new DayRecord();
+		DayRecord dr = new DayRecord(new Date());
 		dr.addTimeRecord(new TimeRecord(Aspect.CAREER, 8));
 		dr.addTimeRecord(new TimeRecord(Aspect.FAMILY, 0));
 		dr.addTimeRecord(new TimeRecord(Aspect.HEALTH, 0));
@@ -55,7 +57,7 @@ public class DAOTest {
 
 	@Test
 	public void recognizeBiggestDeviationOfX() {
-		DayRecord dr = new DayRecord();
+		DayRecord dr = new DayRecord(new Date());
 		dr.addTimeRecord(new TimeRecord(Aspect.CAREER, 2));
 		dr.addTimeRecord(new TimeRecord(Aspect.FAMILY, 2));
 		dr.addTimeRecord(new TimeRecord(Aspect.HEALTH, 2));
@@ -83,7 +85,7 @@ public class DAOTest {
 		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
 
-		assertEquals(new Long(0), dao.calculateMalus(new DayRecord()));
+		assertEquals(new Long(0), dao.calculateMalus(new DayRecord(new Date())));
 	}
 
 	@Test
@@ -93,7 +95,8 @@ public class DAOTest {
 		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
 
-		assertEquals(new Long(100), dao.calculateMalus(new DayRecord()));
+		assertEquals(new Long(100),
+				dao.calculateMalus(new DayRecord(new Date())));
 	}
 
 	@Test
@@ -103,7 +106,8 @@ public class DAOTest {
 		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
 
-		assertEquals(new Long(50), dao.calculateMalus(new DayRecord()));
+		assertEquals(new Long(50),
+				dao.calculateMalus(new DayRecord(new Date())));
 	}
 
 	// //////////////////////////////////////////////////////////
@@ -118,7 +122,8 @@ public class DAOTest {
 
 	@Test
 	public void noRecordsResultsIn0Points() {
-		assertEquals(new Long(0), dao.calculateOverallpoints(new DayRecord()));
+		assertEquals(new Long(0),
+				dao.calculateOverallpoints(new DayRecord(new Date())));
 	}
 
 	@Test
@@ -127,7 +132,8 @@ public class DAOTest {
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(0L).when(mock).calculateMalus(any(DayRecord.class));
 
-		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord();
+		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord(
+				new Date());
 		fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero
 				.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
 		assertEquals(
@@ -141,7 +147,8 @@ public class DAOTest {
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(100L).when(mock).calculateMalus(any(DayRecord.class));
 
-		assertEquals(new Long(0), mock.calculateOverallpoints(new DayRecord()));
+		assertEquals(new Long(0),
+				mock.calculateOverallpoints(new DayRecord(new Date())));
 	}
 
 	@Test
@@ -150,7 +157,8 @@ public class DAOTest {
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(50L).when(mock).calculateMalus(any(DayRecord.class));
 
-		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord();
+		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord(
+				new Date());
 		fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero
 				.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
 		assertEquals(

@@ -29,8 +29,8 @@ public class CalendarController implements Initializable, ViewController {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.HEALTH))
 					healthSeries.getData().add(
-							new XYChart.Data("DATE", timeRecordsToday
-									.getHours()));
+							new XYChart.Data(dr.getDate().toString(),
+									timeRecordsToday.getHours()));
 			}
 		}
 		chart.getData().add(healthSeries);
@@ -41,8 +41,8 @@ public class CalendarController implements Initializable, ViewController {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.FAMILY))
 					familySeries.getData().add(
-							new XYChart.Data("DATE", timeRecordsToday
-									.getHours()));
+							new XYChart.Data(dr.getDate().toString(),
+									timeRecordsToday.getHours()));
 			}
 		}
 		chart.getData().add(familySeries);
@@ -53,8 +53,8 @@ public class CalendarController implements Initializable, ViewController {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.CAREER))
 					careerSeries.getData().add(
-							new XYChart.Data("DATE", timeRecordsToday
-									.getHours()));
+							new XYChart.Data(dr.getDate().toString(),
+									timeRecordsToday.getHours()));
 			}
 		}
 		chart.getData().add(careerSeries);
@@ -65,8 +65,8 @@ public class CalendarController implements Initializable, ViewController {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.YOU))
 					youSeries.getData().add(
-							new XYChart.Data("DATE", timeRecordsToday
-									.getHours()));
+							new XYChart.Data(dr.getDate().toString(),
+									timeRecordsToday.getHours()));
 			}
 		}
 		chart.getData().add(youSeries);

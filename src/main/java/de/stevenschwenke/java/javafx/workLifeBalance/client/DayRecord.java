@@ -1,6 +1,7 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,7 +12,18 @@ import java.util.List;
  */
 public class DayRecord {
 
+	public Date getDate() {
+		return date;
+	}
+
+	private Date date;
+
 	private List<TimeRecord> timeRecordsToday = new ArrayList<TimeRecord>(4);
+
+	public DayRecord(Date date) {
+		super();
+		this.date = date;
+	}
 
 	public void addTimeRecord(TimeRecord newRecord) {
 		timeRecordsToday.add(newRecord);

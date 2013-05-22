@@ -1,6 +1,7 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.LogManager;
@@ -165,7 +166,7 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 					youTotal += tr.getHours();
 			}
 		}
-		DayRecord totalRecord = new DayRecord();
+		DayRecord totalRecord = new DayRecord(new Date());
 		totalRecord.addTimeRecord(new TimeRecord(Aspect.HEALTH, healthTotal));
 		totalRecord.addTimeRecord(new TimeRecord(Aspect.CAREER, careerTotal));
 		totalRecord.addTimeRecord(new TimeRecord(Aspect.FAMILY, familyTotal));
