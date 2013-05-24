@@ -62,7 +62,7 @@ public class CalendarComponent extends Component {
 		viewController.getChart().getData().add(familySeries);
 
 		XYChart.Series careerSeries = new XYChart.Series();
-		careerSeries.setName("Health");
+		careerSeries.setName("Career");
 		for (DayRecord dr : dao.getAllDayRecords()) {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.CAREER))
@@ -74,7 +74,7 @@ public class CalendarComponent extends Component {
 		viewController.getChart().getData().add(careerSeries);
 
 		XYChart.Series youSeries = new XYChart.Series();
-		youSeries.setName("Health");
+		youSeries.setName("You");
 		for (DayRecord dr : dao.getAllDayRecords()) {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.YOU))
