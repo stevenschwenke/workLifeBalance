@@ -1,4 +1,4 @@
-package de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord;
+package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -14,6 +14,7 @@ import org.junit.Test;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.DAO;
 
 /**
  * Test class for {@link DAO}.

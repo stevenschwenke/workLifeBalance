@@ -1,4 +1,4 @@
-package de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord;
+package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import java.util.ArrayList;
 import java.util.Date;

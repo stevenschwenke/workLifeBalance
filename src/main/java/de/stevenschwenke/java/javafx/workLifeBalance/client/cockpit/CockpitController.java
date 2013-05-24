@@ -16,25 +16,37 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarController;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarDao;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarComponent;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordComponent;
 
-public class CockpitController implements Initializable, ViewController {
+public class CockpitController implements Initializable {
 
 	private static Logger log = LogManager.getLogger(CockpitController.class
 			.getName());
 
-	private Component component;
-
-	private NewTimeRecordDao dao;
-
-	private CalendarDao calendarDao;
+	private CockpitComponent component;
 
 	private ObservableList<PieChart.Data> pieChartData;
+
+	protected PieChart.Data getPieDataCareer() {
+		return pieDataCareer;
+	}
+
+	protected PieChart.Data getPieDataFamily() {
+		return pieDataFamily;
+	}
+
+	protected PieChart.Data getPieDataHealth() {
+		return pieDataHealth;
+	}
+
+	protected PieChart.Data getPieDataYou() {
+		return pieDataYou;
+	}
+
+	protected Label getPoints() {
+		return points;
+	}
 
 	private PieChart.Data pieDataCareer;
 
@@ -83,46 +95,25 @@ public class CockpitController implements Initializable, ViewController {
 
 	// Handler for Button[fx:id="add"] onAction
 	public void add(ActionEvent event) {
-		Component newTimeRecordPane = new Component(component,
+		new NewTimeRecordComponent(component, component.getDao(),
 				"newTimeRecord/newTimeRecord.fxml", component.getGroup());
-		NewTimeRecordController newTimeRecordController = (NewTimeRecordController) newTimeRecordPane
-				.getViewController();
-
-		newTimeRecordController.setDao(dao);
 	}
 
 	// Handler for Button[fx:id="calendar"] onAction
 	public void calendar(ActionEvent event) {
-		Component calendarComponent = new Component(component,
-				"calendar/calendar.fxml", component.getGroup());
-		CalendarController calendarController = (CalendarController) calendarComponent
-				.getViewController();
-		calendarController.setDao(calendarDao);
+		CalendarComponent calendarComponent = new CalendarComponent(component,
+				component.getDao(), "calendar/calendar.fxml",
+				component.getGroup());
 	}
 
-	public void setComponent(Component component) {
+	public void setComponent(CockpitComponent component) {
 		this.component = component;
 
 	}
 
-	public void setDao(NewTimeRecordDao dao) {
-		this.dao = dao;
-	}
-
-	public void setCalendarDao(CalendarDao calendarDao) {
-		this.calendarDao = calendarDao;
-	}
-
-	public void notifyDataChanged(Component component) {
-		if (component.getViewController() instanceof NewTimeRecordController) {
-			log.debug("Capturing data changed event from " + component);
-
-			pieDataCareer.setPieValue(dao.calculateCareer());
-			pieDataFamily.setPieValue(dao.calculateFamily());
-			pieDataHealth.setPieValue(dao.calculateHealth());
-			pieDataYou.setPieValue(dao.calculateYou());
-
-			points.setText(dao.calculateOverallpoints().toString());
-		}
-	}
 }
+
+// TODO Idee: von Component erben, sodass spezielle Components entstehen, die
+// auch die konkreten DAOs und Controller kennen. Die DAOs dann per
+// ComponentFactory (die alle diese speziellen Componenten kennt) bei der
+// Erstellung der Components setzen.

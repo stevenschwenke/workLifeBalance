@@ -13,9 +13,8 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.ViewController;
 
-public class NewTimeRecordController implements Initializable, ViewController {
+public class NewTimeRecordController implements Initializable {
 
 	private Component component;
 
@@ -105,7 +104,4 @@ public class NewTimeRecordController implements Initializable, ViewController {
 		this.dao = dao;
 	}
 
-	public void notifyDataChanged(Component component) {
-
-	}
 }

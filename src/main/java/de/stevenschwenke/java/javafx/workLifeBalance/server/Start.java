@@ -7,9 +7,8 @@ import javafx.stage.Stage;
 
 import org.apache.log4j.BasicConfigurator;
 
-import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitController;
-import de.stevenschwenke.java.javafx.workLifeBalance.server.newTimeRecord.DAO;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitComponent;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.DAO;
 
 /**
  * TODO Comment!
@@ -42,12 +41,7 @@ public class Start extends Application {
 
 		primaryStage.setScene(new Scene(root));
 
-		Component cockpit = new Component(null, "cockpit/cockpit.fxml", root);
-		CockpitController cockpitController = (CockpitController) cockpit
-				.getViewController();
-
-		cockpitController.setDao(dao);
-		cockpitController.setCalendarDao(dao);
+		new CockpitComponent(null, dao, "cockpit/cockpit.fxml", root);
 	}
 
 	@Override

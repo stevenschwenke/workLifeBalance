@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
  * @author Steven Schwenke
  * 
  */
-public class Component {
+public abstract class Component {
 
 	private static Logger log = LogManager.getLogger(Component.class.getName());
 
@@ -41,9 +41,13 @@ public class Component {
 
 	private Node view;
 
-	private ViewController viewController;
-
 	private Group group;
+
+	FXMLLoader fxmlLoaderInternal;
+
+	protected FXMLLoader getFxmlLoaderInternal() {
+		return fxmlLoaderInternal;
+	}
 
 	public Component(Component parent, String fxmlFileName, Group group) {
 
@@ -54,7 +58,7 @@ public class Component {
 		this.fxmlFileName = fxmlFileName;
 		this.group = group;
 
-		FXMLLoader fxmlLoaderInternal = new FXMLLoader();
+		fxmlLoaderInternal = new FXMLLoader();
 		InputStream in = Component.class.getResourceAsStream(fxmlFileName);
 		fxmlLoaderInternal.setBuilderFactory(new JavaFXBuilderFactory());
 		URL locationUrl = Component.class.getResource(fxmlFileName);
@@ -67,8 +71,6 @@ public class Component {
 					+ ": " + e.getMessage());
 		}
 
-		viewController = (ViewController) fxmlLoaderInternal.getController();
-		viewController.setComponent(this);
 		group.getChildren().add(view);
 	}
 
@@ -108,7 +110,7 @@ public class Component {
 	 */
 	private void sendingDataChangedEventToChildren(Component component) {
 
-		viewController.notifyDataChanged(component);
+		notifyDataChanged(component);
 
 		log.debug("(" + fxmlFileName + ") Sending data changed event from "
 				+ component + " down to " + children.size() + " children.");
@@ -117,16 +119,14 @@ public class Component {
 		}
 	}
 
+	abstract public void notifyDataChanged(Component component);
+
 	public Group getGroup() {
 		return group;
 	}
 
 	public Node getView() {
 		return view;
-	}
-
-	public ViewController getViewController() {
-		return viewController;
 	}
 
 	public List<Component> getChildren() {
@@ -137,4 +137,5 @@ public class Component {
 	public String toString() {
 		return "Component " + fxmlFileName;
 	}
+
 }
