@@ -5,7 +5,7 @@
 	<artifactId>workLifeBalance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Work Life Balance</name>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -48,6 +48,12 @@
 			<artifactId>derby</artifactId>
 			<version>10.10.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.0.0.Final</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

@@ -1,21 +1,17 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
@@ -38,11 +34,39 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 	public DAO() {
 		super();
 		dayRecords = new ArrayList<DayRecord>();
+
+		// TODO decide how to save data to the data base
+		// doStuffWithHibernate();
+
+	}
+
+	/**
+	 * A method to access data with hibernate.
+	 * 
+	 * @throws ExceptionInInitializerError
+	 */
+	private void doStuffWithHibernate() throws ExceptionInInitializerError {
 		try {
-			initDB();
-		} catch (ClassNotFoundException | SQLException | IOException e) {
-			log.error("Error setting up the database: " + e.getMessage());
-			e.printStackTrace();
+			Configuration configuration = new Configuration();
+			configuration.configure();
+			ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
+					.applySettings(configuration.getProperties())
+					.buildServiceRegistry();
+			SessionFactory sessionFactory = configuration
+					.buildSessionFactory(serviceRegistry);
+
+			Session session = sessionFactory.openSession();
+			TimeRecord person = new TimeRecord(Aspect.CAREER, 42);
+			person.setId(1L);
+			System.out.println("Inserting Record");
+			Transaction tx = session.beginTransaction();
+			session.save(person);
+			tx.commit();
+			System.out.println("Done");
+
+		} catch (Throwable ex) {
+			System.err.println("Failed to create sessionFactory object." + ex);
+			throw new ExceptionInInitializerError(ex);
 		}
 	}
 
@@ -193,99 +217,5 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 	@Override
 	public List<DayRecord> getAllDayRecords() {
 		return dayRecords;
-	}
-
-	public void initDB() throws ClassNotFoundException, SQLException,
-			FileNotFoundException, IOException {
-
-		Properties prop = new Properties();
-
-		prop.load(new FileInputStream("config.properties"));
-
-		String databasePath = prop.getProperty("dbpath");
-
-		Class.forName(DAO.class.getName());
-		Properties properties = new Properties();
-		properties.put("user", "user1");
-		properties.put("password", "user1");
-		Connection connection = DriverManager.getConnection("jdbc:derby:"
-				+ databasePath + ";create=true", properties);
-
-		createTablesIfNecessary(connection);
-		populateTableTestIfItHasNotBeenPopulatedYet(connection);
-		showContentsOfTableTest(connection);
-
-		connection.close();
-	}
-
-	/**
-	 * @param connection
-	 * @throws SQLException
-	 */
-	private static void showContentsOfTableTest(Connection connection)
-			throws SQLException {
-		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM test");
-		int columnCnt = resultSet.getMetaData().getColumnCount();
-		boolean shouldCreateTable = true;
-		while (resultSet.next() && shouldCreateTable) {
-			for (int i = 1; i <= columnCnt; i++) {
-				System.out.print(resultSet.getString(i) + " ");
-			}
-			System.out.println();
-		}
-		resultSet.close();
-		statement.close();
-	}
-
-	private static void populateTableTestIfItHasNotBeenPopulatedYet(
-			Connection connection) throws SQLException {
-
-		boolean shouldPopulateTable = true;
-		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement
-				.executeQuery("SELECT COUNT(*) FROM test");
-		if (resultSet.next()) {
-			shouldPopulateTable = resultSet.getInt(1) == 0;
-		}
-		resultSet.close();
-		statement.close();
-
-		if (shouldPopulateTable) {
-			System.out.println("Populating Table test...");
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO test VALUES (?,?)");
-			String[] data = { "AAA", "BBB", "CCC", "DDD", "EEE" };
-			for (int i = 0; i < data.length; i++) {
-				preparedStatement.setInt(1, i);
-				preparedStatement.setString(2, data[i]);
-				preparedStatement.execute();
-			}
-			preparedStatement.close();
-		}
-	}
-
-	private static void createTablesIfNecessary(Connection connection)
-			throws SQLException {
-		ResultSet resultSet = connection.getMetaData().getTables("%", "%", "%",
-				new String[] { "TABLE" });
-
-		int columnCnt = resultSet.getMetaData().getColumnCount();
-
-		boolean shouldCreateTable = true;
-
-		while (resultSet.next() && shouldCreateTable) {
-			if (resultSet.getString("TABLE_NAME").equalsIgnoreCase("TEST")) {
-				shouldCreateTable = false;
-			}
-		}
-		resultSet.close();
-		if (shouldCreateTable) {
-			log.debug("Creating Table test...");
-			Statement statement = connection.createStatement();
-			statement
-					.execute("create table test (id int not null, data varchar(32))");
-			statement.close();
-		}
 	}
 }
