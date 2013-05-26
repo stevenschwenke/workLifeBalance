@@ -29,11 +29,11 @@ Tool Chain
 - IDE
  - Problem: What IDE to use?
  - options: Eclipse (free, I use it at work and could get more familiar with it, great plugins BUT ALSO slow / unstable), IDEA (fast, very nice build-in features BUT ALSO costs money)
- - decision: Eclipse. To increase my productivity in the projects I get paid for, I have to get more familiar with the IDE used there.
+ - decision: **Eclipse**. To increase my productivity in the projects I get paid for, I have to get more familiar with the IDE used there.
 - Source Control
  - Problem: What source control to use?
  - options: SVN (know it already BUT ALSO have to set up my own server), Git (can commit while being offline, great support including a repository through github BUT ALSO github costs money)
- - decision: Git with github because its only 7$ per month and I want to get more familiar with Git.
+ - decision: **Git** with github because its only 7$ per month and I want to get more familiar with Git.
 - Package dependency management tool 
  - TODO (decision for Degraph)
 
@@ -42,7 +42,10 @@ Technology Stack
 - Persistence
  - Problem: How to persist user-specific data?
  - options: Oracle-SQL-database (already experience BUT ALSO expensive and heavy-weight), HSQLDB (free, light-weight BUT ALSO no experience), Java DB (free, light-weight, already integrated in JDK BUT ALSO a relational DBMS that makes ORM necessary in manual or automated form), object-oriented databases (no gap between the objects in RAM and the persisted objects BUT ALSO there seems to be no good and widly-known implementation)
- - decision: Java DB. I thought about using a NOSQL-DB but had no experience with that. Additionally, the gap between object oriented programming and realtional data storage can be bridget by ORMs or other techniques (see below).
+ - decision: **ava DB**. I thought about using a NOSQL-DB but had no experience with that. Additionally, the gap between object oriented programming and realtional data storage can be bridget by ORMs or other techniques (see below).
+- object-relational mapping
+ - Problem: How to bridge the gap between object-oriented programming and relational persistence?
+ - options: Hibernate (very good support, does 80% of the work with very less effort, have experience with it BUT ALSO the rest 20% of the work are quite cumbersome), TODO
 
 Important Design Decisions
 ----------------
