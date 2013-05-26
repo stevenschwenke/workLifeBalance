@@ -34,6 +34,8 @@ Tool Chain
  - Problem: What source control to use?
  - options: SVN (know it already BUT ALSO have to set up my own server), Git (can commit while being offline, great support including a repository through github BUT ALSO github costs money)
  - decision: Git with github because its only 7$ per month and I want to get more familiar with Git.
+- Package dependency management tool 
+ - TODO (decision for Degraph)
 
 Technology Stack
 ----------------
