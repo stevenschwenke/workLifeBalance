@@ -49,3 +49,7 @@ Technology Stack
 
 Important Design Decisions
 ----------------
+- Inter component communication in user interface code
+ - Problem: Given that functionality is divided into smaller fragments that only have limited tasks and responsabilities, how should these modules communicate to each other? An example is one component that represents a dialog and another component that represents a table on another dialog. If data is inserted into the first component, how does it get to the table in the other component?
+ - Options: Observer-Pattern (components can be registered in components and get notified if a change occurs) (widely known, have experience with it), eventbus (all components post events to a bus on via which all components are connectedand can be notified of change) (sounds easy enough to implement it BUT ALSO no expertise with it)
+ - decision: **Inter component communication via Observer Pattern** because the UI components already form a tree. This tree structure can be used to bubble events up to the root and then communicate them down to every leave (W3C event model).
