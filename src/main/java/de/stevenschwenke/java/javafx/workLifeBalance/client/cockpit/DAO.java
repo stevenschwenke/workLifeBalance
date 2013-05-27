@@ -1,9 +1,15 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -37,6 +43,30 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 
 		// TODO decide how to save data to the data base
 		// doStuffWithHibernate();
+		doStuffWithMyBatis();
+	}
+
+	private void doStuffWithMyBatis() {
+
+		try {
+			String resource = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-config.xml";
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
+					.build(inputStream);
+
+			SqlSession session = sqlSessionFactory.openSession();
+			try {
+				TimeRecord selectOne = session
+						.selectOne(
+								"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecord",
+								0);
+			} finally {
+				session.close();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 

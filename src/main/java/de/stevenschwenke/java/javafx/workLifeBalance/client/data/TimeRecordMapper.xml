@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper">
+  <select id="selectTimeRecord" parameterType="int" resultType="de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord">
+    select * from Time_RECORDS where id = #{id}
+  </select>
+</mapper>

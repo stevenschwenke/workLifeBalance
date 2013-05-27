@@ -21,7 +21,7 @@ import org.hibernate.annotations.Table;
 @DynamicInsert
 @DynamicUpdate
 @SelectBeforeUpdate
-@Table(appliesTo = "TIME_RECORD")
+@Table(appliesTo = "TIME_RECORDS")
 public class TimeRecord {
 
 	private Long id;
@@ -40,6 +40,10 @@ public class TimeRecord {
 	private Aspect aspect;
 
 	private int hours;
+
+	private TimeRecord() {
+		super();
+	}
 
 	public TimeRecord(Aspect aspect, int hours) {
 		super();
