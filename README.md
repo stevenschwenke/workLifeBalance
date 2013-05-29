@@ -39,17 +39,20 @@ Tool Chain
 
 Technology Stack
 ----------------
-- Persistence
+- **Persistence**
  - Problem: How to persist user-specific data?
  - options: 
-  - Oracle-SQL-database: already experience BUT ALSO expensive and heavy-weight
-  - HSQLDB: free, light-weight BUT ALSO no experience
-  - Java DB: free, light-weight, already integrated in JDK BUT ALSO a relational DBMS that makes ORM necessary in manual or automated form
-  - object-oriented databases: no gap between the objects in RAM and the persisted objects BUT ALSO there seems to be no good and widly-known implementation
+ - Oracle-SQL-database: already experience BUT ALSO expensive and heavy-weight
+ - HSQLDB: free, light-weight BUT ALSO no experience
+ - Java DB: free, light-weight, already integrated in JDK BUT ALSO a relational DBMS that makes ORM necessary in manual or automated form
+ - object-oriented databases: no gap between the objects in RAM and the persisted objects BUT ALSO there seems to be no good and widly-known implementation
  - decision: **Java DB**. I thought about using a NOSQL-DB but had no experience with that. Additionally, the gap between object oriented programming and realtional data storage can be bridget by ORMs or other techniques (see below).
-- object-relational mapping
+- **object-relational mapping**
  - Problem: How to bridge the gap between object-oriented programming and relational persistence?
- - options: Hibernate (very good support, does 80% of the work with very less effort, have experience with it BUT ALSO the rest 20% of the work are quite cumbersome), TODO
+ - options: 
+ - Hibernate: very good support, does 80% of the work with very less effort, good support for all CRUD-operations, have experience with it BUT ALSO the rest 20% of the work are quite cumbersome
+ - MyBatis: good separation of SQL-Queries to the rest of the code (reside in XML-files instead of in .java-files) BUT ALSO more made for requests than update/insert operations. According to [Stackoverflow](http://programmers.stackexchange.com/questions/158109/what-are-the-advantages-of-mybatis-over-hibernate) best used with legacy databases.
+ - decision: **TODO** - Hibernate is an allrounder than can provide for read- and write-operations. Queries written for MyBatis can also be written in Hibernate named queries.
 
 Important Design Decisions
 ----------------
