@@ -39,7 +39,7 @@ Tool Chain
 
 Technology Stack
 ----------------
-- **Persistence**
+- **Persistence (production)**
  - Problem: How to persist user-specific data?
  - options: 
  - Oracle-SQL-database: already experience BUT ALSO expensive and heavy-weight
@@ -47,6 +47,12 @@ Technology Stack
  - Java DB: free, light-weight, already integrated in JDK BUT ALSO a relational DBMS that makes ORM necessary in manual or automated form
  - object-oriented databases: no gap between the objects in RAM and the persisted objects BUT ALSO there seems to be no good and widly-known implementation
  - decision: **Java DB**. I thought about using a NOSQL-DB but had no experience with that. Additionally, the gap between object oriented programming and realtional data storage can be bridget by ORMs or other techniques (see below).
+- **Persistence (test environment)**
+ - Problem: How to persist the data of the application while executing JUnit tests?
+ - options:
+ - use Java DB, as I do in production: easy to setup, do difference between test and production environment BUT ALSO slow in comparison with an in-memory solution
+ - HSQLDB: runs in-memory by default, easy to seupt
+ - decision: **HSQLDB** because I also wanted to use this for a long time.
 - **object-relational mapping**
  - Problem: How to bridge the gap between object-oriented programming and relational persistence?
  - options: 
