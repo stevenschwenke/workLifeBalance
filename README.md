@@ -39,13 +39,26 @@ Tool Chain
 
 Technology Stack
 ----------------
-- Persistence
+- **Persistence (production)**
  - Problem: How to persist user-specific data?
- - options: Oracle-SQL-database (already experience BUT ALSO expensive and heavy-weight), HSQLDB (free, light-weight BUT ALSO no experience), Java DB (free, light-weight, already integrated in JDK BUT ALSO a relational DBMS that makes ORM necessary in manual or automated form), object-oriented databases (no gap between the objects in RAM and the persisted objects BUT ALSO there seems to be no good and widly-known implementation)
- - decision: **ava DB**. I thought about using a NOSQL-DB but had no experience with that. Additionally, the gap between object oriented programming and realtional data storage can be bridget by ORMs or other techniques (see below).
-- object-relational mapping
+ - options: 
+ - Oracle-SQL-database: already experience BUT ALSO expensive and heavy-weight
+ - HSQLDB: free, light-weight BUT ALSO no experience
+ - Java DB: free, light-weight, already integrated in JDK BUT ALSO a relational DBMS that makes ORM necessary in manual or automated form
+ - object-oriented databases: no gap between the objects in RAM and the persisted objects BUT ALSO there seems to be no good and widly-known implementation
+ - decision: **Java DB**. I thought about using a NOSQL-DB but had no experience with that. Additionally, the gap between object oriented programming and realtional data storage can be bridget by ORMs or other techniques (see below).
+- **Persistence (test environment)**
+ - Problem: How to persist the data of the application while executing JUnit tests?
+ - options:
+ - use Java DB, as I do in production: easy to setup, do difference between test and production environment BUT ALSO slow in comparison with an in-memory solution
+ - HSQLDB: runs in-memory by default, easy to seupt
+ - decision: **HSQLDB** because I also wanted to use this for a long time.
+- **object-relational mapping**
  - Problem: How to bridge the gap between object-oriented programming and relational persistence?
- - options: Hibernate (very good support, does 80% of the work with very less effort, have experience with it BUT ALSO the rest 20% of the work are quite cumbersome), TODO
+ - options: 
+ - Hibernate: very good support, does 80% of the work with very less effort, good support for all CRUD-operations, have experience with it BUT ALSO the rest 20% of the work are quite cumbersome and Hibernate has a steep learning curve when it gets to this last 20% ([see this blog post](http://hallofthemountainking.wordpress.com/2011/11/11/now-why-am-i-so-much-in-love-with-mybatis/)
+ - MyBatis: good separation of SQL-Queries to the rest of the code (reside in XML-files instead of in .java-files) and no error-generating "Change Tracking" like Hibernate BUT ALSO more made for requests than update/insert operations. Its focus lies on "just getting data out of the database", it's not an ORM in the first place. According to [Stackoverflow](http://programmers.stackexchange.com/questions/158109/what-are-the-advantages-of-mybatis-over-hibernate) best used with legacy databases.
+ - decision: **MyBatis**. Although Hibernate is an allrounder than can provide for read- and write-operations and I have quite some experience with it, it has a boatload of functions and features such as change tracking that don't make life easier. Additionally, because I have the experience, I should learn a new ORM. MyBatis is lightweight in its functionalities and I can practice writing SQL statements.
 
 Important Design Decisions
 ----------------
