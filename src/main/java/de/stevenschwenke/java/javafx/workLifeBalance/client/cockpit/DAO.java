@@ -12,12 +12,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
@@ -41,8 +35,6 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 		super();
 		dayRecords = new ArrayList<DayRecord>();
 
-		// TODO decide how to save data to the data base
-		// doStuffWithHibernate();
 		doStuffWithMyBatis();
 	}
 
@@ -68,36 +60,6 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 			e.printStackTrace();
 		}
 
-	}
-
-	/**
-	 * A method to access data with hibernate.
-	 * 
-	 * @throws ExceptionInInitializerError
-	 */
-	private void doStuffWithHibernate() throws ExceptionInInitializerError {
-		try {
-			Configuration configuration = new Configuration();
-			configuration.configure();
-			ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
-					.applySettings(configuration.getProperties())
-					.buildServiceRegistry();
-			SessionFactory sessionFactory = configuration
-					.buildSessionFactory(serviceRegistry);
-
-			Session session = sessionFactory.openSession();
-			TimeRecord person = new TimeRecord(Aspect.CAREER, 42);
-			person.setId(1L);
-			System.out.println("Inserting Record");
-			Transaction tx = session.beginTransaction();
-			session.save(person);
-			tx.commit();
-			System.out.println("Done");
-
-		} catch (Throwable ex) {
-			System.err.println("Failed to create sessionFactory object." + ex);
-			throw new ExceptionInInitializerError(ex);
-		}
 	}
 
 	public void addNewDayRecord(DayRecord newRecord) {
