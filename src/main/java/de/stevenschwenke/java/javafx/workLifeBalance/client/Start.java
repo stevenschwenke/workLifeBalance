@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import org.apache.log4j.BasicConfigurator;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitComponent;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.DAO;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
 
 /**
  * TODO Comment!
@@ -22,7 +22,7 @@ public class Start extends Application {
 
 	private Group root;
 
-	private DAO dao;
+	private MyBatisDao dao;
 
 	public static Start getInstance() {
 		if (instance == null) {
@@ -47,7 +47,7 @@ public class Start extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		dao = new DAO();
+		dao = new MyBatisDao();
 
 		init(primaryStage);
 

@@ -2,6 +2,11 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,20 +30,59 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTim
  * @author Steven Schwenke
  * 
  */
-public class DAO implements NewTimeRecordDao, CalendarDao {
+public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
-	private static Logger log = LogManager.getLogger(DAO.class.getName());
+	private static Logger log = LogManager
+			.getLogger(MyBatisDao.class.getName());
 
 	private List<DayRecord> dayRecords;
 
-	public DAO() {
+	public MyBatisDao() {
 		super();
 		dayRecords = new ArrayList<DayRecord>();
-
-		doStuffWithMyBatis();
+		try {
+			doStuffWithHSQLDB();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	private void doStuffWithMyBatis() {
+	private void doStuffWithHSQLDB() throws ClassNotFoundException,
+			SQLException {
+		String database = "mem:mydb";
+		String sql = "create table Bookmarks (title char(100), url char(100))";
+		String sql1 = "insert into Bookmarks values ('Titel', 'URL')";
+		String sql2 = "SELECT title, url FROM Bookmarks ORDER BY title";
+		Connection connection;
+
+		System.out.println("TestDemobase\n");
+
+		Class.forName("org.hsqldb.jdbcDriver");
+		connection = DriverManager.getConnection("jdbc:hsqldb:" + database,
+				"sa", "");
+
+		Statement statement = null;
+		ResultSet resultSet = null;
+
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+		resultSet = statement.executeQuery(sql1);
+		resultSet = statement.executeQuery(sql2);
+
+		while (resultSet.next()) {
+			System.out.println(resultSet.getString("title") + " ("
+					+ resultSet.getString("url") + ")");
+
+		}
+
+		resultSet.close();
+		statement.close();
+		connection.close();
+	}
+
+	@Override
+	public TimeRecord readTimeRecord(int id) {
 
 		try {
 			String resource = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-config.xml";
@@ -48,10 +92,10 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 
 			SqlSession session = sqlSessionFactory.openSession();
 			try {
-				TimeRecord selectOne = session
+				return session
 						.selectOne(
 								"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecord",
-								0);
+								id);
 			} finally {
 				session.close();
 			}
@@ -59,9 +103,10 @@ public class DAO implements NewTimeRecordDao, CalendarDao {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		return null;
 	}
 
+	// TODO Implement this function with TDD and MyBatis
 	public void addNewDayRecord(DayRecord newRecord) {
 		log.debug("addNewDayRecord: " + newRecord);
 		dayRecords.add(newRecord);

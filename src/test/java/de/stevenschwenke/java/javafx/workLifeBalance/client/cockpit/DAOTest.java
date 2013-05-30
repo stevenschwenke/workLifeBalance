@@ -14,20 +14,20 @@ import org.junit.Test;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.DAO;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
 
 /**
- * Test class for {@link DAO}.
+ * Test class for {@link MyBatisDao}.
  * 
  * @author Steven Schwenke
  * 
  */
 public class DAOTest {
-	private DAO dao;
+	private MyBatisDao dao;
 
 	@Before
 	public void setup() {
-		dao = new DAO();
+		dao = new MyBatisDao();
 	}
 
 	// //////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ public class DAOTest {
 
 	@Test
 	public void calculationOfMalusOfZero() {
-		DAO dao = spy(new DAO());
+		MyBatisDao dao = spy(new MyBatisDao());
 
 		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
@@ -91,7 +91,7 @@ public class DAOTest {
 
 	@Test
 	public void calculationOfMalusOfOne() {
-		DAO dao = spy(new DAO());
+		MyBatisDao dao = spy(new MyBatisDao());
 
 		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
@@ -102,7 +102,7 @@ public class DAOTest {
 
 	@Test
 	public void calculationOfMalusOfX() {
-		DAO dao = spy(new DAO());
+		MyBatisDao dao = spy(new MyBatisDao());
 
 		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
@@ -129,7 +129,7 @@ public class DAOTest {
 
 	@Test
 	public void noMalusAndNoBonusResultsIn100Points() {
-		DAO mock = spy(new DAO());
+		MyBatisDao mock = spy(new MyBatisDao());
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(0L).when(mock).calculateMalus(any(DayRecord.class));
 
@@ -144,7 +144,7 @@ public class DAOTest {
 
 	@Test
 	public void malusOf100ResultsIn0PointsTotal() {
-		DAO mock = spy(new DAO());
+		MyBatisDao mock = spy(new MyBatisDao());
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(100L).when(mock).calculateMalus(any(DayRecord.class));
 
@@ -154,7 +154,7 @@ public class DAOTest {
 
 	@Test
 	public void malusOf50ResultsIn0PointsTotal() {
-		DAO mock = spy(new DAO());
+		MyBatisDao mock = spy(new MyBatisDao());
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(50L).when(mock).calculateMalus(any(DayRecord.class));
 

@@ -3,7 +3,7 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 
 /**
- * TODO Comment!
+ * The data access object for creating a new {@link DayRecord}.
  * 
  * @author Steven Schwenke
  * 

@@ -21,14 +21,14 @@ public class CockpitComponent extends Component {
 
 	private CockpitController cockpitController;
 
-	private DAO dao;
+	private MyBatisDao dao;
 
 	/**
 	 * @param parent
 	 * @param fxmlFileName
 	 * @param group
 	 */
-	public CockpitComponent(Component parent, DAO dao, String fxmlFileName,
+	public CockpitComponent(Component parent, MyBatisDao dao, String fxmlFileName,
 			Group group) {
 		super(parent, fxmlFileName, group);
 
@@ -40,7 +40,7 @@ public class CockpitComponent extends Component {
 
 	}
 
-	protected DAO getDao() {
+	protected MyBatisDao getDao() {
 		return dao;
 	}
 
