@@ -52,7 +52,7 @@ Technology Stack
  - options: 
  - Hibernate: very good support, does 80% of the work with very less effort, good support for all CRUD-operations, have experience with it BUT ALSO the rest 20% of the work are quite cumbersome and Hibernate has a steep learning curve when it gets to this last 20% ([see this blog post](http://hallofthemountainking.wordpress.com/2011/11/11/now-why-am-i-so-much-in-love-with-mybatis/)
  - MyBatis: good separation of SQL-Queries to the rest of the code (reside in XML-files instead of in .java-files) and no error-generating "Change Tracking" like Hibernate BUT ALSO more made for requests than update/insert operations. Its focus lies on "just getting data out of the database", it's not an ORM in the first place. According to [Stackoverflow](http://programmers.stackexchange.com/questions/158109/what-are-the-advantages-of-mybatis-over-hibernate) best used with legacy databases.
- - decision: **TODO** - Hibernate is an allrounder than can provide for read- and write-operations. Queries written for MyBatis can also be written in Hibernate named queries. KEEP IN MIND: Why not try MyBatis, just to say that I used another ORM?
+ - decision: **MyBatis**. Although Hibernate is an allrounder than can provide for read- and write-operations and I have quite some experience with it, it has a boatload of functions and features such as change tracking that don't make life easier. Additionally, because I have the experience, I should learn a new ORM. MyBatis is lightweight in its functionalities and I can practice writing SQL statements.
 
 Important Design Decisions
 ----------------
