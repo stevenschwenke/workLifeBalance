@@ -33,9 +33,9 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
  * @author Steven Schwenke
  * 
  */
-public class DAOTest {
+public class MyBatisDaoTest {
 
-	private static Logger log = LogManager.getLogger(DAOTest.class.getName());
+	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class.getName());
 
 	/** path to test config for the in-memory database */
 	private static final String PATH_TO_TEST_CONFIG = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-test-config.xml";
