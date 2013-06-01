@@ -47,7 +47,8 @@ public class Start extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		dao = new MyBatisDao();
+		dao = new MyBatisDao(
+				"de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-live-config.xml");
 
 		init(primaryStage);
 

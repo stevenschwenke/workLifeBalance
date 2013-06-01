@@ -2,11 +2,6 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,75 +30,39 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 	private static Logger log = LogManager
 			.getLogger(MyBatisDao.class.getName());
 
-	private List<DayRecord> dayRecords;
+	private List<DayRecord> dayRecords = new ArrayList<DayRecord>();
 
-	public MyBatisDao() {
+	private SqlSessionFactory sqlSessionFactory;
+
+	public MyBatisDao(String configPath) {
+
 		super();
-		dayRecords = new ArrayList<DayRecord>();
+
 		try {
-			doStuffWithHSQLDB();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+			log.debug("Building up connection to database " + configPath);
+			InputStream inputStream = Resources.getResourceAsStream(configPath);
+			sqlSessionFactory = new SqlSessionFactoryBuilder()
+					.build(inputStream);
+		} catch (IOException e) {
+			log.error("Could not build up connection to database " + configPath
+					+ ": " + e.getMessage());
 			e.printStackTrace();
 		}
-	}
-
-	private void doStuffWithHSQLDB() throws ClassNotFoundException,
-			SQLException {
-		String database = "mem:mydb";
-		String sql = "create table Bookmarks (title char(100), url char(100))";
-		String sql1 = "insert into Bookmarks values ('Titel', 'URL')";
-		String sql2 = "SELECT title, url FROM Bookmarks ORDER BY title";
-		Connection connection;
-
-		System.out.println("TestDemobase\n");
-
-		Class.forName("org.hsqldb.jdbcDriver");
-		connection = DriverManager.getConnection("jdbc:hsqldb:" + database,
-				"sa", "");
-
-		Statement statement = null;
-		ResultSet resultSet = null;
-
-		statement = connection.createStatement();
-		resultSet = statement.executeQuery(sql);
-		resultSet = statement.executeQuery(sql1);
-		resultSet = statement.executeQuery(sql2);
-
-		while (resultSet.next()) {
-			System.out.println(resultSet.getString("title") + " ("
-					+ resultSet.getString("url") + ")");
-
-		}
-
-		resultSet.close();
-		statement.close();
-		connection.close();
 	}
 
 	@Override
 	public TimeRecord readTimeRecord(int id) {
 
+		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			String resource = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-config.xml";
-			InputStream inputStream = Resources.getResourceAsStream(resource);
-			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
-					.build(inputStream);
-
-			SqlSession session = sqlSessionFactory.openSession();
-			try {
-				return session
-						.selectOne(
-								"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecord",
-								id);
-			} finally {
-				session.close();
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
+			return session
+					.selectOne(
+							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecord",
+							id);
+		} finally {
+			session.close();
 		}
-		return null;
+
 	}
 
 	// TODO Implement this function with TDD and MyBatis

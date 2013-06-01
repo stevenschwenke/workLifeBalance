@@ -1,20 +1,31 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
 
 /**
  * Test class for {@link MyBatisDao}.
@@ -23,11 +34,90 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
  * 
  */
 public class DAOTest {
+
+	private static Logger log = LogManager.getLogger(DAOTest.class.getName());
+
+	/** path to test config for the in-memory database */
+	private static final String PATH_TO_TEST_CONFIG = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-test-config.xml";
+
 	private MyBatisDao dao;
+
+	/** Connection to the in-memory database */
+	private Connection connection;
 
 	@Before
 	public void setup() {
-		dao = new MyBatisDao();
+
+		createInMemoryDatabase();
+
+		dao = new MyBatisDao(PATH_TO_TEST_CONFIG);
+		BasicConfigurator.configure();
+	}
+
+	@After
+	public void teardown() {
+		try {
+			connection.rollback();
+			connection.close();
+		} catch (SQLException e) {
+			log.error("Error closing the connection: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Creates the in-memory database for testing
+	 */
+	private void createInMemoryDatabase() {
+		Statement statement = null;
+		connection = null;
+		try {
+
+			// TODO extract this SQL to some kind of script file to have it at
+			// hand when the database has to be set up.
+
+			Class.forName("org.hsqldb.jdbcDriver");
+
+			connection = DriverManager.getConnection("jdbc:hsqldb:mem:mydb",
+					"sa", "");
+
+			DatabaseMetaData dbm = connection.getMetaData();
+			ResultSet tables = dbm.getTables(null, null, "TIME_RECORDS", null);
+			if (!tables.next()) {
+				statement = connection.createStatement();
+				String sql = "create table TIME_RECORDS (id int, hours int)";
+				statement.executeQuery(sql);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				statement.close();
+			} catch (SQLException | NullPointerException e) {
+				log.error("Unexpected error while creating the database for testing: "
+						+ e.getMessage() + e.getStackTrace());
+			}
+		}
+	}
+
+	@Test
+	public void readTimeRecordFromEmptyDatabaseTest() {
+		assertNull(dao.readTimeRecord(0));
+	}
+
+	@Test
+	public void readTimeRecordFromDatabaseWithOnlyThatTimeRecordTest()
+			throws SQLException {
+
+		Statement statement = connection.createStatement();
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours) values (0, 42)");
+
+		TimeRecord timeRecord = dao.readTimeRecord(0);
+		assertNotNull(timeRecord);
+		assertEquals(new Long(0), timeRecord.getId());
+		assertEquals(42, timeRecord.getHours());
 	}
 
 	// //////////////////////////////////////////////////////////
@@ -81,7 +171,7 @@ public class DAOTest {
 
 	@Test
 	public void calculationOfMalusOfZero() {
-		MyBatisDao dao = spy(new MyBatisDao());
+		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 
 		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
@@ -91,7 +181,7 @@ public class DAOTest {
 
 	@Test
 	public void calculationOfMalusOfOne() {
-		MyBatisDao dao = spy(new MyBatisDao());
+		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 
 		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
@@ -102,7 +192,7 @@ public class DAOTest {
 
 	@Test
 	public void calculationOfMalusOfX() {
-		MyBatisDao dao = spy(new MyBatisDao());
+		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 
 		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(
 				any(DayRecord.class));
@@ -129,7 +219,7 @@ public class DAOTest {
 
 	@Test
 	public void noMalusAndNoBonusResultsIn100Points() {
-		MyBatisDao mock = spy(new MyBatisDao());
+		MyBatisDao mock = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(0L).when(mock).calculateMalus(any(DayRecord.class));
 
@@ -144,7 +234,7 @@ public class DAOTest {
 
 	@Test
 	public void malusOf100ResultsIn0PointsTotal() {
-		MyBatisDao mock = spy(new MyBatisDao());
+		MyBatisDao mock = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(100L).when(mock).calculateMalus(any(DayRecord.class));
 
@@ -154,7 +244,7 @@ public class DAOTest {
 
 	@Test
 	public void malusOf50ResultsIn0PointsTotal() {
-		MyBatisDao mock = spy(new MyBatisDao());
+		MyBatisDao mock = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(50L).when(mock).calculateMalus(any(DayRecord.class));
 
