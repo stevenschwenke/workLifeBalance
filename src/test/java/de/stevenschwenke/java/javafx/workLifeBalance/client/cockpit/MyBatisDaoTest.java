@@ -3,18 +3,22 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+
+import liquibase.Liquibase;
+import liquibase.database.jvm.HsqlConnection;
+import liquibase.exception.LiquibaseException;
+import liquibase.resource.ClassLoaderResourceAccessor;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
@@ -35,7 +39,8 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
  */
 public class MyBatisDaoTest {
 
-	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class.getName());
+	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class
+			.getName());
 
 	/** path to test config for the in-memory database */
 	private static final String PATH_TO_TEST_CONFIG = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-test-config.xml";
@@ -44,6 +49,8 @@ public class MyBatisDaoTest {
 
 	/** Connection to the in-memory database */
 	private Connection connection;
+
+	private Liquibase liquibase;
 
 	@Before
 	public void setup() {
@@ -54,50 +61,38 @@ public class MyBatisDaoTest {
 		BasicConfigurator.configure();
 	}
 
-	@After
-	public void teardown() {
-		try {
-			connection.rollback();
-			connection.close();
-		} catch (SQLException e) {
-			log.error("Error closing the connection: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Creates the in-memory database for testing
-	 */
 	private void createInMemoryDatabase() {
-		Statement statement = null;
-		connection = null;
-		try {
 
-			// TODO extract this SQL to some kind of script file to have it at
-			// hand when the database has to be set up.
+		String changelog = "changelog.sql";
+
+		try {
 
 			Class.forName("org.hsqldb.jdbcDriver");
 
 			connection = DriverManager.getConnection("jdbc:hsqldb:mem:mydb",
 					"sa", "");
+			HsqlConnection hsqlConnection = new HsqlConnection(connection);
 
-			DatabaseMetaData dbm = connection.getMetaData();
-			ResultSet tables = dbm.getTables(null, null, "TIME_RECORDS", null);
-			if (!tables.next()) {
-				statement = connection.createStatement();
-				String sql = "create table TIME_RECORDS (id int, hours int)";
-				statement.executeQuery(sql);
-			}
+			liquibase = new Liquibase(changelog,
+					new ClassLoaderResourceAccessor(), hsqlConnection);
+			liquibase.update(null);
+			liquibase.tag("structureCompleteWithoutContent");
 
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException | LiquibaseException | ClassNotFoundException e) {
+			fail();
 			e.printStackTrace();
-		} finally {
-			try {
-				statement.close();
-			} catch (SQLException | NullPointerException e) {
-				log.error("Unexpected error while creating the database for testing: "
-						+ e.getMessage() + e.getStackTrace());
-			}
+		}
+	}
+
+	@After
+	public void teardown() {
+		try {
+			liquibase.rollback("structureCompleteWithoutContent", "");
+			connection.rollback();
+			connection.close();
+		} catch (SQLException | LiquibaseException e) {
+			log.error("Error closing the connection: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
