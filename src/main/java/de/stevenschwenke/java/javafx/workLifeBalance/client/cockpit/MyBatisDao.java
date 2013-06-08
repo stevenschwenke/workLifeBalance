@@ -2,6 +2,7 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,8 +30,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
 	private static Logger log = LogManager
 			.getLogger(MyBatisDao.class.getName());
-
-	// private List<DayRecord> dayRecords = new ArrayList<DayRecord>();
 
 	private SqlSessionFactory sqlSessionFactory;
 
@@ -61,10 +60,19 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			return session
+			List<TimeRecord> resultList = new ArrayList<TimeRecord>();
+			List<TimeRecordInsertWrapper> wrapperList = session
 					.selectList(
 							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecordOfDayRecord",
 							dayRecordId);
+			for (TimeRecordInsertWrapper w : wrapperList) {
+				TimeRecord tr = new TimeRecord(Aspect.valueOf(w.aspect),
+						w.hours);
+				tr.setId(w.id);
+				resultList.add(tr);
+
+			}
+			return resultList;
 		} finally {
 			session.close();
 		}

@@ -112,9 +112,9 @@ public class MyBatisDaoTest {
 		statement
 				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (0, 42, 0)");
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (0, 42, 0,'CAREER')");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (3, 45, 0)");
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (3, 45, 0, 'CAREER')");
 
 		List<TimeRecord> timeRecords = dao.readTimeRecordOfDayRecord(0L);
 
@@ -137,7 +137,7 @@ public class MyBatisDaoTest {
 		statement
 				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (0, 42, 0)");
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (0, 42, 0, 'CAREER')");
 
 		List<DayRecord> allDayRecords = dao.getAllDayRecords();
 		assertNotNull(allDayRecords);
@@ -220,19 +220,19 @@ public class MyBatisDaoTest {
 		statement
 				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (0, 42, 0)");
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (0, 42, 0, 'CAREER')");
 
 		// Record #2
 		statement
 				.executeQuery("insert into DAY_RECORDS (id, date) values (1, CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (1, 43, 1)");
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (1, 43, 1,'FAMILY')");
 
 		// Record #3
 		statement
 				.executeQuery("insert into DAY_RECORDS (id, date) values (2, CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (2, 44, 2)");
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (2, 44, 2, 'HEALTH')");
 
 		List<DayRecord> allDayRecords = dao.getAllDayRecords();
 		assertNotNull(allDayRecords);
@@ -243,6 +243,8 @@ public class MyBatisDaoTest {
 		assertEquals(1, dayRecord1.getTimeRecordsToday().size());
 		assertEquals(new Long(0), dayRecord1.getTimeRecordsToday().get(0)
 				.getId());
+		assertEquals(Aspect.CAREER, dayRecord1.getTimeRecordsToday().get(0)
+				.getAspect());
 		assertEquals(42, dayRecord1.getTimeRecordsToday().get(0).getHours());
 
 		// Record #2
@@ -250,6 +252,8 @@ public class MyBatisDaoTest {
 		assertEquals(1, dayRecord2.getTimeRecordsToday().size());
 		assertEquals(new Long(1), dayRecord2.getTimeRecordsToday().get(0)
 				.getId());
+		assertEquals(Aspect.FAMILY, dayRecord2.getTimeRecordsToday().get(0)
+				.getAspect());
 		assertEquals(43, dayRecord2.getTimeRecordsToday().get(0).getHours());
 
 		// Record #3
@@ -257,8 +261,9 @@ public class MyBatisDaoTest {
 		assertEquals(1, dayRecord3.getTimeRecordsToday().size());
 		assertEquals(new Long(2), dayRecord3.getTimeRecordsToday().get(0)
 				.getId());
+		assertEquals(Aspect.HEALTH, dayRecord3.getTimeRecordsToday().get(0)
+				.getAspect());
 		assertEquals(44, dayRecord3.getTimeRecordsToday().get(0).getHours());
-
 	}
 
 	// //////////////////////////////////////////////////////////

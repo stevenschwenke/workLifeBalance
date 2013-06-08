@@ -28,8 +28,8 @@ public class CockpitComponent extends Component {
 	 * @param fxmlFileName
 	 * @param group
 	 */
-	public CockpitComponent(Component parent, MyBatisDao dao, String fxmlFileName,
-			Group group) {
+	public CockpitComponent(Component parent, MyBatisDao dao,
+			String fxmlFileName, Group group) {
 		super(parent, fxmlFileName, group);
 
 		this.dao = dao;
@@ -38,6 +38,7 @@ public class CockpitComponent extends Component {
 				.getController();
 		cockpitController.setComponent(this);
 
+		refreshData();
 	}
 
 	protected MyBatisDao getDao() {
@@ -47,16 +48,17 @@ public class CockpitComponent extends Component {
 	public void notifyDataChanged(Component component) {
 		if (component instanceof NewTimeRecordComponent) {
 			log.debug("Capturing data changed event from " + component);
-			cockpitController.getPieDataCareer().setPieValue(
-					dao.calculateCareer());
-			cockpitController.getPieDataFamily().setPieValue(
-					dao.calculateFamily());
-			cockpitController.getPieDataHealth().setPieValue(
-					dao.calculateHealth());
-			cockpitController.getPieDataYou().setPieValue(dao.calculateYou());
-
-			cockpitController.getPoints().setText(
-					dao.calculateOverallpoints().toString());
+			refreshData();
 		}
+	}
+
+	private void refreshData() {
+		cockpitController.getPieDataCareer().setPieValue(dao.calculateCareer());
+		cockpitController.getPieDataFamily().setPieValue(dao.calculateFamily());
+		cockpitController.getPieDataHealth().setPieValue(dao.calculateHealth());
+		cockpitController.getPieDataYou().setPieValue(dao.calculateYou());
+
+		cockpitController.getPoints().setText(
+				dao.calculateOverallpoints().toString());
 	}
 }

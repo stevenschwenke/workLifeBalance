@@ -7,13 +7,18 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client;
  * 
  */
 public class TimeRecordInsertWrapper {
-	public int aspect;
+	public long id;
+	public String aspect;
 	public int hours;
 	public int dayRecordId;
 
+	private TimeRecordInsertWrapper() {
+		super();
+	}
+
 	public TimeRecordInsertWrapper(Aspect aspect, int hours, int dayRecordId) {
 		super();
-		this.aspect = aspect.ordinal();
+		this.aspect = aspect.name();
 		this.hours = hours;
 		this.dayRecordId = dayRecordId;
 	}

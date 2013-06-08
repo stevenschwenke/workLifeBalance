@@ -6,11 +6,11 @@
 	namespace="de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper">
 
 	<insert id="insertTimeRecord" parameterType="TimeRecordInsertWrapper">
-		insert into TIME_RECORDS (id, hours, day_record_id) values (NEXT VALUE FOR
-		TIME_RECORDS_SEQ, #{hours}, #{dayRecordId})
+		insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (NEXT VALUE FOR
+		TIME_RECORDS_SEQ, #{hours}, #{dayRecordId}, #{aspect})
 	</insert>
 
-	<select id="selectTimeRecordOfDayRecord" parameterType="int" resultType="TimeRecord">
+	<select id="selectTimeRecordOfDayRecord" parameterType="int" resultType="TimeRecordInsertWrapper">
 		select * from Time_RECORDS where day_record_id = #{id}
 	</select>
 </mapper>
