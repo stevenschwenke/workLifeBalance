@@ -10,7 +10,13 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
  */
 public interface NewTimeRecordDao {
 
-	public void addNewDayRecord(DayRecord newRecord);
+	/**
+	 * Writes a new or existing {@link DayRecord} to the database.
+	 * 
+	 * @param newRecord
+	 * @return id of the record
+	 */
+	public int insertDayRecord(DayRecord newRecord);
 
 	public double calculateCareer();
 

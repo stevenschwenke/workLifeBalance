@@ -83,7 +83,7 @@ public class NewTimeRecordController implements Initializable {
 
 		}
 
-		dao.addNewDayRecord(dailyRecord);
+		dao.insertDayRecord(dailyRecord);
 
 		component.bubbleDataChanged(component);
 

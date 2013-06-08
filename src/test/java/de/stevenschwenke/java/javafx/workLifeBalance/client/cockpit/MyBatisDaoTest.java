@@ -2,7 +2,7 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
@@ -11,9 +11,11 @@ import static org.mockito.Mockito.when;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.List;
 
 import liquibase.Liquibase;
 import liquibase.database.jvm.HsqlConnection;
@@ -75,8 +77,8 @@ public class MyBatisDaoTest {
 
 			liquibase = new Liquibase(changelog,
 					new ClassLoaderResourceAccessor(), hsqlConnection);
+
 			liquibase.update(null);
-			liquibase.tag("structureCompleteWithoutContent");
 
 		} catch (SQLException | LiquibaseException | ClassNotFoundException e) {
 			fail();
@@ -87,8 +89,7 @@ public class MyBatisDaoTest {
 	@After
 	public void teardown() {
 		try {
-			liquibase.rollback("structureCompleteWithoutContent", "");
-			connection.rollback();
+			liquibase.dropAll();
 			connection.close();
 		} catch (SQLException | LiquibaseException e) {
 			log.error("Error closing the connection: " + e.getMessage());
@@ -96,23 +97,168 @@ public class MyBatisDaoTest {
 		}
 	}
 
+	// TIME RECORDS
 	@Test
-	public void readTimeRecordFromEmptyDatabaseTest() {
-		assertNull(dao.readTimeRecord(0));
+	public void readTimeRecordByDayRecordFromEmptyDatabase() {
+		assertTrue(dao.readTimeRecordOfDayRecord(0L).isEmpty());
 	}
 
 	@Test
-	public void readTimeRecordFromDatabaseWithOnlyThatTimeRecordTest()
-			throws SQLException {
+	public void readTimeRecordByDayRecord() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
 
-		Statement statement = connection.createStatement();
+		// Record #1
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours) values (0, 42)");
+				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (0, 42, 0)");
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (3, 45, 0)");
 
-		TimeRecord timeRecord = dao.readTimeRecord(0);
-		assertNotNull(timeRecord);
-		assertEquals(new Long(0), timeRecord.getId());
-		assertEquals(42, timeRecord.getHours());
+		List<TimeRecord> timeRecords = dao.readTimeRecordOfDayRecord(0L);
+
+		assertEquals(2, timeRecords.size());
+		assertEquals(42, timeRecords.get(0).getHours());
+		assertEquals(45, timeRecords.get(1).getHours());
+	}
+
+	// DAY RECORDS
+	@Test
+	public void readDayRecordFromEmptyDatabaseIsNull() {
+		assertEquals(0, dao.getAllDayRecords().size());
+	}
+
+	@Test
+	public void readTheOnlyExistingDayRecordFromDatabase() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		statement
+				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (0, 42, 0)");
+
+		List<DayRecord> allDayRecords = dao.getAllDayRecords();
+		assertNotNull(allDayRecords);
+		assertEquals(1, allDayRecords.size());
+		assertEquals(1, allDayRecords.get(0).getTimeRecordsToday().size());
+		assertEquals(new Long(0), allDayRecords.get(0).getTimeRecordsToday()
+				.get(0).getId());
+
+	}
+
+	@Test
+	public void writeOneNewDayRecordWithoutATimeRecord() throws SQLException {
+		DayRecord newRecord = new DayRecord(new Date());
+		dao.insertDayRecord(newRecord);
+
+		Statement statement;
+		statement = connection.createStatement();
+
+		ResultSet resultSet = statement
+				.executeQuery("select * from DAY_RECORDS");
+
+		int numberOfRows = 0;
+		while (resultSet.next()) {
+			numberOfRows++;
+			assertEquals(1, resultSet.getInt("id"));
+		}
+
+		assertEquals(1, numberOfRows);
+	}
+
+	@Test
+	public void writeOneNewDayRecordWithTwoTimeRecords() throws SQLException {
+		DayRecord newRecord = new DayRecord(new Date());
+		TimeRecord tr1 = new TimeRecord(Aspect.CAREER, 42);
+		newRecord.addTimeRecord(tr1);
+		TimeRecord tr2 = new TimeRecord(Aspect.CAREER, 50);
+		newRecord.addTimeRecord(tr2);
+
+		int dayRecordId = dao.insertDayRecord(newRecord);
+
+		// DayRecord saved properly?
+		assertEquals(1, dayRecordId);
+		Statement statement;
+		statement = connection.createStatement();
+		ResultSet resultSet = statement
+				.executeQuery("select * from DAY_RECORDS");
+
+		int numberOfRows = 0;
+		while (resultSet.next()) {
+			numberOfRows++;
+			assertEquals(1, resultSet.getInt("id"));
+		}
+		assertEquals(1, numberOfRows);
+
+		// TimeRecord saved properly?
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery("select * from TIME_RECORDS");
+
+		numberOfRows = 0;
+		while (resultSet.next()) {
+			numberOfRows++;
+			if (numberOfRows == 1) {
+				assertEquals(1, resultSet.getInt("id"));
+				assertEquals(42, resultSet.getInt("hours"));
+			}
+			if (numberOfRows == 2) {
+				assertEquals(2, resultSet.getInt("id"));
+				assertEquals(50, resultSet.getInt("hours"));
+			}
+		}
+		assertEquals(2, numberOfRows);
+	}
+
+	@Test
+	public void readThreeDayRecordsFromDatabase() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		// Record #1
+		statement
+				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (0, 42, 0)");
+
+		// Record #2
+		statement
+				.executeQuery("insert into DAY_RECORDS (id, date) values (1, CURDATE())");
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (1, 43, 1)");
+
+		// Record #3
+		statement
+				.executeQuery("insert into DAY_RECORDS (id, date) values (2, CURDATE())");
+		statement
+				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id) values (2, 44, 2)");
+
+		List<DayRecord> allDayRecords = dao.getAllDayRecords();
+		assertNotNull(allDayRecords);
+		assertEquals(3, allDayRecords.size());
+
+		// Record #1
+		DayRecord dayRecord1 = allDayRecords.get(0);
+		assertEquals(1, dayRecord1.getTimeRecordsToday().size());
+		assertEquals(new Long(0), dayRecord1.getTimeRecordsToday().get(0)
+				.getId());
+		assertEquals(42, dayRecord1.getTimeRecordsToday().get(0).getHours());
+
+		// Record #2
+		DayRecord dayRecord2 = allDayRecords.get(1);
+		assertEquals(1, dayRecord2.getTimeRecordsToday().size());
+		assertEquals(new Long(1), dayRecord2.getTimeRecordsToday().get(0)
+				.getId());
+		assertEquals(43, dayRecord2.getTimeRecordsToday().get(0).getHours());
+
+		// Record #3
+		DayRecord dayRecord3 = allDayRecords.get(2);
+		assertEquals(1, dayRecord3.getTimeRecordsToday().size());
+		assertEquals(new Long(2), dayRecord3.getTimeRecordsToday().get(0)
+				.getId());
+		assertEquals(44, dayRecord3.getTimeRecordsToday().get(0).getHours());
+
 	}
 
 	// //////////////////////////////////////////////////////////

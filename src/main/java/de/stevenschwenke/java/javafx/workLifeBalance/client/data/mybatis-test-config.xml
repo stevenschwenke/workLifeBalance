@@ -2,19 +2,33 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
-  <environments default="development">
-    <environment id="development">
-      <transactionManager type="JDBC"/>
-      <dataSource type="POOLED">
-        <property name="driver" value="org.hsqldb.jdbcDriver"/>
-        <property name="url" value="jdbc:hsqldb:mem:mydb"/>
-        <property name="username" value="sa"/>
-        <property name="password" value=""/>
-      </dataSource>
-    </environment>
-  </environments>
-  <mappers>
-    <mapper resource="de/stevenschwenke/java/javafx/workLifeBalance/client/data/TimeRecordMapper.xml"/>
-  </mappers>
+
+	<typeAliases>
+		<typeAlias alias="DayRecord" type="de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord" />
+		<typeAlias alias="TimeRecord" type="de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord" />
+		<typeAlias alias="TimeRecordInsertWrapper" type="de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecordInsertWrapper"/>
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.hsqldb.jdbcDriver" />
+				<property name="url" value="jdbc:hsqldb:mem:mydb" />
+				<property name="username" value="sa" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper
+			resource="de/stevenschwenke/java/javafx/workLifeBalance/client/data/TimeRecordMapper.xml" />
+		<mapper
+			resource="de/stevenschwenke/java/javafx/workLifeBalance/client/data/DayRecordMapper.xml" />
+	</mappers>
+
+
+
 </configuration>

@@ -2,13 +2,15 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper">
+<mapper
+	namespace="de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper">
 
-<select id="insertSomeTimeRecord" parameterType="int" resultType="de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord">
-    insert into TIME_RECORDS (id, hours) values (0, 42)
-  </select>
+	<insert id="insertTimeRecord" parameterType="TimeRecordInsertWrapper">
+		insert into TIME_RECORDS (id, hours, day_record_id) values (NEXT VALUE FOR
+		TIME_RECORDS_SEQ, #{hours}, #{dayRecordId})
+	</insert>
 
-  <select id="selectTimeRecord" parameterType="int" resultType="de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord">
-    select * from Time_RECORDS where id = #{id}
-  </select>
+	<select id="selectTimeRecordOfDayRecord" parameterType="int" resultType="TimeRecord">
+		select * from Time_RECORDS where day_record_id = #{id}
+	</select>
 </mapper>

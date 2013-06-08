@@ -11,22 +11,35 @@ import java.util.List;
  * 
  */
 public class DayRecord {
-
-	public Date getDate() {
-		return date;
-	}
+	private Long id;
 
 	private Date date;
 
 	private List<TimeRecord> timeRecordsToday = new ArrayList<TimeRecord>(4);
+
+	private DayRecord() {
+		super();
+	}
 
 	public DayRecord(Date date) {
 		super();
 		this.date = date;
 	}
 
-	public void addTimeRecord(TimeRecord newRecord) {
-		timeRecordsToday.add(newRecord);
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public List<TimeRecord> getTimeRecordsToday() {
@@ -35,6 +48,10 @@ public class DayRecord {
 
 	public void setTimeRecordsToday(List<TimeRecord> timeRecordsToday) {
 		this.timeRecordsToday = timeRecordsToday;
+	}
+
+	public void addTimeRecord(TimeRecord newRecord) {
+		timeRecordsToday.add(newRecord);
 	}
 
 }

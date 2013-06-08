@@ -2,7 +2,6 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +15,7 @@ import org.apache.log4j.Logger;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecordInsertWrapper;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarDao;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordDao;
 
@@ -30,7 +30,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 	private static Logger log = LogManager
 			.getLogger(MyBatisDao.class.getName());
 
-	private List<DayRecord> dayRecords = new ArrayList<DayRecord>();
+	// private List<DayRecord> dayRecords = new ArrayList<DayRecord>();
 
 	private SqlSessionFactory sqlSessionFactory;
 
@@ -50,30 +50,61 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		}
 	}
 
-	@Override
-	public TimeRecord readTimeRecord(int id) {
+	/**
+	 * Reads all {@link TimeRecord}s of a specific {@link DayRecord}.
+	 * 
+	 * @param dayRecordId
+	 *            id of the {@link DayRecord}
+	 * @return
+	 */
+	public List<TimeRecord> readTimeRecordOfDayRecord(Long dayRecordId) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			return session
-					.selectOne(
-							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecord",
-							id);
+					.selectList(
+							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecordOfDayRecord",
+							dayRecordId);
 		} finally {
 			session.close();
 		}
-
 	}
 
-	// TODO Implement this function with TDD and MyBatis
-	public void addNewDayRecord(DayRecord newRecord) {
-		log.debug("addNewDayRecord: " + newRecord);
-		dayRecords.add(newRecord);
+	public int insertTimeRecord(TimeRecordInsertWrapper tr) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			return session
+					.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord",
+							tr);
+		} finally {
+			session.commit();
+			session.close();
+		}
+	}
+
+	public int insertDayRecord(DayRecord newRecord) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			int dayRecordId = session
+					.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.insertDayRecord",
+							newRecord);
+			for (TimeRecord tr : newRecord.getTimeRecordsToday()) {
+				TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
+						tr.getAspect(), tr.getHours(), dayRecordId);
+				insertTimeRecord(wrapper);
+			}
+			return dayRecordId;
+		} finally {
+			session.commit();
+			session.close();
+		}
 	}
 
 	public double calculateCareer() {
 		double result = 0;
-		for (DayRecord dr : dayRecords) {
+		for (DayRecord dr : getAllDayRecords()) {
 			for (TimeRecord r : dr.getTimeRecordsToday()) {
 				if (r.getAspect().equals(Aspect.CAREER)) {
 					result += r.getHours();
@@ -85,7 +116,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
 	public double calculateFamily() {
 		double result = 0;
-		for (DayRecord dr : dayRecords) {
+		for (DayRecord dr : getAllDayRecords()) {
 			for (TimeRecord r : dr.getTimeRecordsToday()) {
 				if (r.getAspect().equals(Aspect.FAMILY)) {
 					result += r.getHours();
@@ -97,7 +128,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
 	public double calculateHealth() {
 		double result = 0;
-		for (DayRecord dr : dayRecords) {
+		for (DayRecord dr : getAllDayRecords()) {
 			for (TimeRecord r : dr.getTimeRecordsToday()) {
 				if (r.getAspect().equals(Aspect.HEALTH)) {
 					result += r.getHours();
@@ -109,7 +140,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
 	public double calculateYou() {
 		double result = 0;
-		for (DayRecord dr : dayRecords) {
+		for (DayRecord dr : getAllDayRecords()) {
 			for (TimeRecord r : dr.getTimeRecordsToday()) {
 				if (r.getAspect().equals(Aspect.YOU)) {
 					result += r.getHours();
@@ -168,7 +199,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		// way would be to sum the points for each record and divide it by the
 		// number of records. However, that would result in a strange behavior.
 
-		DayRecord totalRecord = sumUpRecords(dayRecords);
+		DayRecord totalRecord = sumUpRecords(getAllDayRecords());
 		return calculateOverallpoints(totalRecord);
 
 	}
@@ -212,6 +243,18 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
 	@Override
 	public List<DayRecord> getAllDayRecords() {
-		return dayRecords;
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			List<DayRecord> dayRecordsWithoutTimeRecords = session
+					.selectList("de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.selectAllDayRecords");
+			for (DayRecord dr : dayRecordsWithoutTimeRecords) {
+				List<TimeRecord> timeRecordsOfDayRecord = readTimeRecordOfDayRecord(dr
+						.getId());
+				dr.setTimeRecordsToday(timeRecordsOfDayRecord);
+			}
+			return dayRecordsWithoutTimeRecords;
+		} finally {
+			session.close();
+		}
 	}
 }
