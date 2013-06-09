@@ -78,32 +78,21 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		}
 	}
 
-	public int insertTimeRecord(TimeRecordInsertWrapper tr) {
-
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			return session
-					.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord",
-							tr);
-		} finally {
-			session.commit();
-			session.close();
-		}
-	}
-
-	public int insertDayRecord(DayRecord newRecord) {
+	public long insertDayRecord(DayRecord newRecord) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 
-			int dayRecordId = session
-					.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.insertDayRecord",
-							newRecord);
+			session.insert(
+					"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.insertDayRecord",
+					newRecord);
 			for (TimeRecord tr : newRecord.getTimeRecordsToday()) {
 				TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
-						tr.getAspect(), tr.getHours(), dayRecordId);
-				insertTimeRecord(wrapper);
+						tr.getAspect(), tr.getHours(), newRecord.getId());
+				session.insert(
+						"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord",
+						wrapper);
 			}
-			return dayRecordId;
+			return newRecord.getId();
 		} finally {
 			session.commit();
 			session.close();

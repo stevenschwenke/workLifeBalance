@@ -5,20 +5,20 @@
 <mapper
 	namespace="de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper">
 
-	<resultMap id="dayRecordList"
-		type="DayRecord">
+	<resultMap id="dayRecordList" type="DayRecord">
 		<id property="id" column="id" />
 		<result property="date" column="date" />
 	</resultMap>
 
-	<resultMap id="TimeRecord" type="TimeRecord" >
+	<resultMap id="TimeRecord" type="TimeRecord">
 		<id property="id" column="id" />
 		<result property="hours" column="hours" />
 	</resultMap>
 
-	<insert id="insertDayRecord" 
-		parameterType="DayRecord">
-		insert into DAY_RECORDS (id, date) values (NEXT VALUE FOR DAY_RECORDS_SEQ,#{date} )
+	<insert id="insertDayRecord" parameterType="DayRecord"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into DAY_RECORDS (date)
+		values (#{date})
 	</insert>
 
 	<select id="selectAllDayRecords" parameterType="int" resultMap="dayRecordList">

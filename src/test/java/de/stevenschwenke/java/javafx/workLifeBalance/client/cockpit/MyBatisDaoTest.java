@@ -110,12 +110,12 @@ public class MyBatisDaoTest {
 
 		// Record #1
 		statement
-				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (0, 42, 0,'CAREER')");
+				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0,'CAREER')");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (3, 45, 0, 'CAREER')");
-
+				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (45, 0, 'CAREER')");
+		connection.commit();
 		List<TimeRecord> timeRecords = dao.readTimeRecordOfDayRecord(0L);
 
 		assertEquals(2, timeRecords.size());
@@ -135,9 +135,10 @@ public class MyBatisDaoTest {
 		statement = connection.createStatement();
 
 		statement
-				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (0, 42, 0, 'CAREER')");
+				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
+		connection.commit();
 
 		List<DayRecord> allDayRecords = dao.getAllDayRecords();
 		assertNotNull(allDayRecords);
@@ -162,7 +163,7 @@ public class MyBatisDaoTest {
 		int numberOfRows = 0;
 		while (resultSet.next()) {
 			numberOfRows++;
-			assertEquals(1, resultSet.getInt("id"));
+			assertEquals(0, resultSet.getInt("id"));
 		}
 
 		assertEquals(1, numberOfRows);
@@ -176,10 +177,10 @@ public class MyBatisDaoTest {
 		TimeRecord tr2 = new TimeRecord(Aspect.CAREER, 50);
 		newRecord.addTimeRecord(tr2);
 
-		int dayRecordId = dao.insertDayRecord(newRecord);
+		long dayRecordId = dao.insertDayRecord(newRecord);
 
 		// DayRecord saved properly?
-		assertEquals(1, dayRecordId);
+		assertEquals(0, dayRecordId);
 		Statement statement;
 		statement = connection.createStatement();
 		ResultSet resultSet = statement
@@ -188,7 +189,7 @@ public class MyBatisDaoTest {
 		int numberOfRows = 0;
 		while (resultSet.next()) {
 			numberOfRows++;
-			assertEquals(1, resultSet.getInt("id"));
+			assertEquals(0, resultSet.getInt("id"));
 		}
 		assertEquals(1, numberOfRows);
 
@@ -200,11 +201,11 @@ public class MyBatisDaoTest {
 		while (resultSet.next()) {
 			numberOfRows++;
 			if (numberOfRows == 1) {
-				assertEquals(1, resultSet.getInt("id"));
+				assertEquals(0, resultSet.getInt("id"));
 				assertEquals(42, resultSet.getInt("hours"));
 			}
 			if (numberOfRows == 2) {
-				assertEquals(2, resultSet.getInt("id"));
+				assertEquals(1, resultSet.getInt("id"));
 				assertEquals(50, resultSet.getInt("hours"));
 			}
 		}
@@ -218,21 +219,22 @@ public class MyBatisDaoTest {
 
 		// Record #1
 		statement
-				.executeQuery("insert into DAY_RECORDS (id, date) values (0, CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (0, 42, 0, 'CAREER')");
+				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
 
 		// Record #2
 		statement
-				.executeQuery("insert into DAY_RECORDS (id, date) values (1, CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (1, 43, 1,'FAMILY')");
+				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (43, 1,'FAMILY')");
 
 		// Record #3
 		statement
-				.executeQuery("insert into DAY_RECORDS (id, date) values (2, CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS ( date) values (CURDATE())");
 		statement
-				.executeQuery("insert into TIME_RECORDS (id, hours, day_record_id, aspect) values (2, 44, 2, 'HEALTH')");
+				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (44, 2, 'HEALTH')");
+		connection.commit();
 
 		List<DayRecord> allDayRecords = dao.getAllDayRecords();
 		assertNotNull(allDayRecords);

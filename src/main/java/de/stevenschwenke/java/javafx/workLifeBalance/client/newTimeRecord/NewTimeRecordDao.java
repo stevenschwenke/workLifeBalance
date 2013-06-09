@@ -16,7 +16,7 @@ public interface NewTimeRecordDao {
 	 * @param newRecord
 	 * @return id of the record
 	 */
-	public int insertDayRecord(DayRecord newRecord);
+	public long insertDayRecord(DayRecord newRecord);
 
 	public double calculateCareer();
 
