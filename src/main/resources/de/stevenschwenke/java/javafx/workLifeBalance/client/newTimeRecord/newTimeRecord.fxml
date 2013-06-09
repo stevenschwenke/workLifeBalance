@@ -6,24 +6,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
+<?import jfxtras.labs.scene.control.*?>
+<?scenebuilder-classpath-element D:/Users/schwenks/.m2/repository/org/jfxtras/jfxtras-labs/2.2-r5/jfxtras-labs-2.2-r5.jar?>
 
-<TitledPane animated="false" collapsible="false" contentDisplay="CENTER" minWidth="179.0" prefHeight="257.5" prefWidth="210.00009999999747" text="What did you do?" xmlns:fx="http://javafx.com/fxml" fx:controller="de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController">
+<TitledPane animated="false" collapsible="false" contentDisplay="CENTER" minWidth="179.0" prefHeight="257.5" prefWidth="239.00009999999747" text="What did you do?" xmlns:fx="http://javafx.com/fxml" fx:controller="de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordController">
   <content>
     <AnchorPane id="AnchorPane" minHeight="16.0" prefHeight="189.0" prefWidth="214.0">
       <children>
         <Label id="testlabel" layoutX="8.0" layoutY="69.0" text="Career:" />
-        <Label layoutX="127.0" layoutY="43.0" text="Hours" />
-        <TextField id="hours" fx:id="careerHours" layoutX="92.0" layoutY="66.0" prefWidth="101.0" />
+        <Label layoutX="141.0" layoutY="43.0" text="Hours" />
+        <TextField id="hours" fx:id="careerHours" layoutX="92.0" layoutY="66.0" prefWidth="130.0" />
         <Button fx:id="ok" layoutX="159.0" layoutY="197.0" mnemonicParsing="false" onAction="#ok" text="OK" />
         <Button fx:id="cancel" layoutX="92.0" layoutY="197.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
         <Label layoutX="8.0" layoutY="97.0" text="Family:" />
         <Label layoutX="8.0" layoutY="125.0" text="Health:" />
         <Label layoutX="8.0" layoutY="153.0" text="You:" />
-        <TextField id="family" fx:id="familyHours" layoutX="92.0" layoutY="94.0" prefWidth="101.0" />
-        <TextField id="health" fx:id="healthHours" layoutX="92.0" layoutY="122.0" prefWidth="101.0" />
-        <TextField id="you" fx:id="youHours" layoutX="92.0" layoutY="150.0" prefWidth="101.0" />
+        <TextField id="family" fx:id="familyHours" layoutX="92.0" layoutY="94.0" prefWidth="130.0" />
+        <TextField id="health" fx:id="healthHours" layoutX="92.0" layoutY="122.0" prefWidth="130.0" />
+        <TextField id="you" fx:id="youHours" layoutX="92.0" layoutY="150.0" prefWidth="130.0" />
         <Label layoutX="8.0" layoutY="14.0" text="When" />
-        <TextField fx:id="date" layoutX="93.0" layoutY="14.0" prefWidth="101.0" text="(DATE)" />
+        <CalendarTextField fx:id="date" layoutX="93.0" layoutY="14.0" prefWidth="100.0" />
       </children>
     </AnchorPane>
   </content>

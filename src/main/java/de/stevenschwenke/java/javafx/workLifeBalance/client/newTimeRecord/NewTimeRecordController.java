@@ -1,7 +1,7 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord;
 
 import java.net.URL;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import jfxtras.labs.scene.control.CalendarTextField;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
@@ -19,6 +20,10 @@ public class NewTimeRecordController implements Initializable {
 	private Component component;
 
 	private NewTimeRecordDao dao;
+
+	@FXML
+	// fx:id="date"
+	private CalendarTextField date; // Value injected by FXMLLoader
 
 	@FXML
 	// fx:id="cancel"
@@ -50,13 +55,13 @@ public class NewTimeRecordController implements Initializable {
 
 	// This method is called by the FXMLLoader when initialization is complete
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-
+		date.setValue(Calendar.getInstance());
 	}
 
 	@FXML
 	public void ok() {
 
-		DayRecord dailyRecord = new DayRecord(new Date());
+		DayRecord dailyRecord = new DayRecord(date.getValue().getTime());
 
 		if (!careerHours.getText().isEmpty()) {
 			TimeRecord careerRecord = new TimeRecord(Aspect.CAREER,
