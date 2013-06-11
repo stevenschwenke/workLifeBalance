@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -56,6 +58,43 @@ public class NewTimeRecordController implements Initializable {
 	// This method is called by the FXMLLoader when initialization is complete
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
 		date.setValue(Calendar.getInstance());
+
+		date.valueProperty().addListener(new ChangeListener<Calendar>() {
+			@Override
+			public void changed(
+					ObservableValue<? extends Calendar> observableValue,
+					Calendar oldValue, Calendar newValue) {
+
+				boolean dayRecordExists = dao.dayRecordExists(newValue
+						.getTime());
+
+				if (dayRecordExists) {
+					setTimeFieldsAccordingToDayRecord();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Sets the fields in the form according to the selected date.
+	 */
+	private void setTimeFieldsAccordingToDayRecord() {
+		DayRecord dayRecord = dao.getDayRecord(date.getValue().getTime());
+
+		for (TimeRecord tr : dayRecord.getTimeRecordsToday()) {
+			if (tr.getAspect().equals(Aspect.CAREER)) {
+				careerHours.setText("" + tr.getHours());
+			}
+			if (tr.getAspect().equals(Aspect.FAMILY)) {
+				familyHours.setText("" + tr.getHours());
+			}
+			if (tr.getAspect().equals(Aspect.HEALTH)) {
+				healthHours.setText("" + tr.getHours());
+			}
+			if (tr.getAspect().equals(Aspect.YOU)) {
+				youHours.setText("" + tr.getHours());
+			}
+		}
 	}
 
 	@FXML

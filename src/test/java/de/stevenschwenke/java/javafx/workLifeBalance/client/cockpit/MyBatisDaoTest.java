@@ -1,6 +1,7 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -15,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -125,6 +127,68 @@ public class MyBatisDaoTest {
 	}
 
 	// DAY RECORDS
+
+	@Test
+	public void checkIfDayRecordExistsTrue() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		connection.commit();
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2013);
+		cal.set(Calendar.MONTH, 0);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+
+		assertTrue(dao.dayRecordExists(cal.getTime()));
+	}
+
+	@Test
+	public void checkIfDayRecordExistsFalse() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		connection.commit();
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2017);
+		cal.set(Calendar.MONTH, 1);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+
+		assertFalse(dao.dayRecordExists(cal.getTime()));
+	}
+
+	@Test
+	public void getADayRecordOfASpecificDate() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2014-01-01')");
+		connection.commit();
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2013);
+		cal.set(Calendar.MONTH, 0);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		cal.set(Calendar.HOUR, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+
+		DayRecord dayRecord = dao.getDayRecord(cal.getTime());
+		assertNotNull(dayRecord);
+		assertEquals(cal.getTime(), dayRecord.getDate());
+	}
+
 	@Test
 	public void readDayRecordFromEmptyDatabaseIsNull() {
 		assertEquals(0, dao.getAllDayRecords().size());

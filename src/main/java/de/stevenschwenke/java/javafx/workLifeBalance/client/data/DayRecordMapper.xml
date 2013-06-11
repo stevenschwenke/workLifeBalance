@@ -24,4 +24,13 @@
 	<select id="selectAllDayRecords" parameterType="int" resultMap="dayRecordList">
 		select * from DAY_RECORDS order by date asc
 	</select>
+
+	<select id="selectDayRecordByDate" parameterType="date"
+		resultType="DayRecord">
+		select * from DAY_RECORDS where date = #{date}
+	</select>
+
+	<select id="dayRecordExists" parameterType="date" resultType="int">
+		select count(*) from DAY_RECORDS where date = #{date}
+	</select>
 </mapper>

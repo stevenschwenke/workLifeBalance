@@ -254,4 +254,35 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 			session.close();
 		}
 	}
+
+	@Override
+	public boolean dayRecordExists(Date date) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			int count = session
+					.selectOne(
+							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.dayRecordExists",
+							date);
+			return count > 0;
+		} finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public DayRecord getDayRecord(Date date) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			DayRecord dr = session
+					.selectOne(
+							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.selectDayRecordByDate",
+							date);
+			List<TimeRecord> timeRecordsOfDayRecord = readTimeRecordOfDayRecord(dr
+					.getId());
+			dr.setTimeRecordsToday(timeRecordsOfDayRecord);
+			return dr;
+		} finally {
+			session.close();
+		}
+	}
 }
