@@ -1,5 +1,7 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord;
 
+import java.util.Calendar;
+
 import javafx.scene.Group;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
 
@@ -31,6 +33,7 @@ public class NewTimeRecordComponent extends Component {
 				.getController();
 		newTimeRecordController.setComponent(this);
 		newTimeRecordController.setDao(dao);
+		newTimeRecordController.initDate(Calendar.getInstance());
 
 	}
 

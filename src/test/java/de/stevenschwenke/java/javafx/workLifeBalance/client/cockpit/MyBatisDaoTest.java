@@ -179,7 +179,7 @@ public class MyBatisDaoTest {
 		cal.set(Calendar.YEAR, 2013);
 		cal.set(Calendar.MONTH, 0);
 		cal.set(Calendar.DAY_OF_MONTH, 1);
-		cal.set(Calendar.HOUR, 0);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
@@ -284,19 +284,19 @@ public class MyBatisDaoTest {
 
 		// Record #1
 		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
 		statement
 				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
 
 		// Record #2
 		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-02')");
 		statement
 				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (43, 1,'FAMILY')");
 
 		// Record #3
 		statement
-				.executeUpdate("insert into DAY_RECORDS ( date) values (CURDATE())");
+				.executeUpdate("insert into DAY_RECORDS ( date) values ('2013-01-03')");
 		statement
 				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (44, 2, 'HEALTH')");
 		connection.commit();

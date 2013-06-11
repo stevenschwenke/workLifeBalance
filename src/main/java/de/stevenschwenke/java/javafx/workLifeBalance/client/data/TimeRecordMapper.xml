@@ -5,12 +5,19 @@
 <mapper
 	namespace="de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper">
 
-	<insert id="insertTimeRecord" parameterType="TimeRecordInsertWrapper" useGeneratedKeys="true"
-    keyProperty="id">
-		insert into TIME_RECORDS (hours, day_record_id, aspect) values (#{hours}, #{dayRecordId}, #{aspect})
+	<insert id="insertTimeRecord" parameterType="TimeRecordInsertWrapper"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into TIME_RECORDS (hours,
+		day_record_id, aspect) values (#{hours}, #{dayRecordId}, #{aspect})
 	</insert>
 
-	<select id="selectTimeRecordOfDayRecord" parameterType="int" resultType="TimeRecordInsertWrapper">
+	<update id="updateTimeRecord" parameterType="TimeRecordInsertWrapper">
+		update TIME_RECORDS
+		set hours=#{hours} where id=#{id}
+	</update>
+
+	<select id="selectTimeRecordOfDayRecord" parameterType="int"
+		resultType="TimeRecordInsertWrapper">
 		select * from Time_RECORDS where day_record_id = #{id}
 	</select>
 </mapper>

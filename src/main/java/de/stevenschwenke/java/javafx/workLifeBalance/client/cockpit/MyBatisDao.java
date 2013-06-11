@@ -99,6 +99,35 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		}
 	}
 
+	public void updateDayRecord(DayRecord existingRecord) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			for (TimeRecord tr : existingRecord.getTimeRecordsToday()) {
+
+				if (tr.getId() == null) {
+					TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
+							tr.getAspect(), tr.getHours(),
+							existingRecord.getId());
+					session.insert(
+							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord",
+							wrapper);
+				} else {
+					TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
+							tr.getAspect(), tr.getHours(),
+							existingRecord.getId());
+					wrapper.setId(tr.getId());
+					session.update(
+							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.updateTimeRecord",
+							wrapper);
+				}
+			}
+		} finally {
+			session.commit();
+			session.close();
+		}
+	}
+
 	public double calculateCareer() {
 		double result = 0;
 		for (DayRecord dr : getAllDayRecords()) {

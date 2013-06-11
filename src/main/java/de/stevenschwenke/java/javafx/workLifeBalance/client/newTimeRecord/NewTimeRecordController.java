@@ -57,7 +57,6 @@ public class NewTimeRecordController implements Initializable {
 
 	// This method is called by the FXMLLoader when initialization is complete
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-		date.setValue(Calendar.getInstance());
 
 		date.valueProperty().addListener(new ChangeListener<Calendar>() {
 			@Override
@@ -65,21 +64,47 @@ public class NewTimeRecordController implements Initializable {
 					ObservableValue<? extends Calendar> observableValue,
 					Calendar oldValue, Calendar newValue) {
 
-				boolean dayRecordExists = dao.dayRecordExists(newValue
+				clearTimeFields();
+
+				Calendar selectedValue = newValue != null ? newValue : oldValue;
+
+				boolean dayRecordExists = dao.dayRecordExists(selectedValue
 						.getTime());
 
 				if (dayRecordExists) {
-					setTimeFieldsAccordingToDayRecord();
+					setTimeFieldsAccordingToDayRecord(selectedValue);
 				}
 			}
 		});
 	}
 
+	protected void initDate(Calendar calendar) {
+		date.setValue(calendar);
+
+		boolean dayRecordExists = dao.dayRecordExists(calendar.getTime());
+
+		if (dayRecordExists) {
+			setTimeFieldsAccordingToDayRecord(calendar);
+		} else {
+			clearTimeFields();
+		}
+	}
+
+	/**
+	 * Empties the time fields.
+	 */
+	private void clearTimeFields() {
+		careerHours.clear();
+		familyHours.clear();
+		healthHours.clear();
+		youHours.clear();
+	}
+
 	/**
 	 * Sets the fields in the form according to the selected date.
 	 */
-	private void setTimeFieldsAccordingToDayRecord() {
-		DayRecord dayRecord = dao.getDayRecord(date.getValue().getTime());
+	private void setTimeFieldsAccordingToDayRecord(Calendar value) {
+		DayRecord dayRecord = dao.getDayRecord(value.getTime());
 
 		for (TimeRecord tr : dayRecord.getTimeRecordsToday()) {
 			if (tr.getAspect().equals(Aspect.CAREER)) {
@@ -99,9 +124,31 @@ public class NewTimeRecordController implements Initializable {
 
 	@FXML
 	public void ok() {
+		boolean dayRecordAlreadyExists = dao.dayRecordExists(date.getValue()
+				.getTime());
+		DayRecord dailyRecord = null;
+		if (dayRecordAlreadyExists) {
+			dailyRecord = dao.getDayRecord(date.getValue().getTime());
+			fillDayRecordFromTextfields(dailyRecord);
+			dao.updateDayRecord(dailyRecord);
+		} else {
+			dailyRecord = new DayRecord(date.getValue().getTime());
+			fillDayRecordFromTextfields(dailyRecord);
+			dao.insertDayRecord(dailyRecord);
+		}
 
-		DayRecord dailyRecord = new DayRecord(date.getValue().getTime());
+		component.bubbleDataChanged(component);
 
+		component.getGroup().getChildren().remove(component.getView());
+	}
+
+	/**
+	 * Fills a {@link DayRecord} from the textfields.
+	 * 
+	 * @param dailyRecord
+	 *            to fill
+	 */
+	private void fillDayRecordFromTextfields(DayRecord dailyRecord) {
 		if (!careerHours.getText().isEmpty()) {
 			TimeRecord careerRecord = new TimeRecord(Aspect.CAREER,
 					Integer.parseInt(careerHours.getText()));
@@ -124,14 +171,7 @@ public class NewTimeRecordController implements Initializable {
 			TimeRecord youRecord = new TimeRecord(Aspect.YOU,
 					Integer.parseInt(youHours.getText()));
 			dailyRecord.addTimeRecord(youRecord);
-
 		}
-
-		dao.insertDayRecord(dailyRecord);
-
-		component.bubbleDataChanged(component);
-
-		component.getGroup().getChildren().remove(component.getView());
 	}
 
 	@FXML
@@ -147,5 +187,4 @@ public class NewTimeRecordController implements Initializable {
 	public void setDao(NewTimeRecordDao dao) {
 		this.dao = dao;
 	}
-
 }

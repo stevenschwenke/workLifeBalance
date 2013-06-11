@@ -13,12 +13,20 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 public interface NewTimeRecordDao {
 
 	/**
-	 * Writes a new or existing {@link DayRecord} to the database.
+	 * Writes a new {@link DayRecord} to the database.
 	 * 
 	 * @param newRecord
 	 * @return id of the record
 	 */
 	public long insertDayRecord(DayRecord newRecord);
+
+	/**
+	 * Updates an existing {@link DayRecord} to the database.
+	 * 
+	 * @param existingRecord
+	 *            to update
+	 */
+	public void updateDayRecord(DayRecord existingRecord);
 
 	/**
 	 * Checks if there is a {@link DayRecord} for a specific day.
