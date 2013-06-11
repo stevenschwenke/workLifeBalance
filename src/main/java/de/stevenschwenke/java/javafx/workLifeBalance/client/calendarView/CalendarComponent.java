@@ -1,5 +1,8 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javafx.scene.Group;
 import javafx.scene.chart.XYChart;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
@@ -43,7 +46,7 @@ public class CalendarComponent extends Component {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.HEALTH))
 					healthSeries.getData().add(
-							new XYChart.Data(dr.getDate().toString(),
+							new XYChart.Data(formatDate(dr.getDate()),
 									timeRecordsToday.getHours()));
 			}
 		}
@@ -55,7 +58,7 @@ public class CalendarComponent extends Component {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.FAMILY))
 					familySeries.getData().add(
-							new XYChart.Data(dr.getDate().toString(),
+							new XYChart.Data(formatDate(dr.getDate()),
 									timeRecordsToday.getHours()));
 			}
 		}
@@ -67,7 +70,7 @@ public class CalendarComponent extends Component {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.CAREER))
 					careerSeries.getData().add(
-							new XYChart.Data(dr.getDate().toString(),
+							new XYChart.Data(formatDate(dr.getDate()),
 									timeRecordsToday.getHours()));
 			}
 		}
@@ -79,7 +82,7 @@ public class CalendarComponent extends Component {
 			for (TimeRecord timeRecordsToday : dr.getTimeRecordsToday()) {
 				if (timeRecordsToday.getAspect().equals(Aspect.YOU))
 					youSeries.getData().add(
-							new XYChart.Data(dr.getDate().toString(),
+							new XYChart.Data(formatDate(dr.getDate()),
 									timeRecordsToday.getHours()));
 			}
 		}
@@ -90,6 +93,18 @@ public class CalendarComponent extends Component {
 	public void notifyDataChanged(Component component) {
 		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * Formats a date for display.
+	 * 
+	 * @param date
+	 *            to format
+	 * @return string for the UI
+	 */
+	private String formatDate(Date date) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		return simpleDateFormat.format(date);
 	}
 
 }
