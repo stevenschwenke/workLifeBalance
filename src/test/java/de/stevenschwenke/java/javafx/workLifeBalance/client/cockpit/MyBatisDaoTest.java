@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -266,6 +267,59 @@ public class MyBatisDaoTest {
 		assertEquals(Aspect.HEALTH, dayRecord3.getTimeRecordsToday().get(0)
 				.getAspect());
 		assertEquals(44, dayRecord3.getTimeRecordsToday().get(0).getHours());
+	}
+
+	@Test
+	public void dayRecordsAreReadInAscendingTimeOrder() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		// Record #1
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2011-01-01')");
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2010-01-01')");
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-02')");
+
+		statement
+				.executeUpdate("insert into DAY_RECORDS (date) values ('2011-02-01')");
+
+		connection.commit();
+
+		List<DayRecord> allDayRecords = dao.getAllDayRecords();
+		assertNotNull(allDayRecords);
+		assertEquals(5, allDayRecords.size());
+
+		DayRecord dayRecord1 = allDayRecords.get(0);
+		assertEquals("2010",
+				new SimpleDateFormat("yyyy").format(dayRecord1.getDate()));
+
+		DayRecord dayRecord2 = allDayRecords.get(1);
+		assertEquals("2011",
+				new SimpleDateFormat("yyyy").format(dayRecord2.getDate()));
+		assertEquals("01",
+				new SimpleDateFormat("MM").format(dayRecord2.getDate()));
+
+		DayRecord dayRecord3 = allDayRecords.get(2);
+		assertEquals("2011",
+				new SimpleDateFormat("yyyy").format(dayRecord3.getDate()));
+		assertEquals("02",
+				new SimpleDateFormat("MM").format(dayRecord3.getDate()));
+
+		DayRecord dayRecord4 = allDayRecords.get(3);
+		assertEquals("2012",
+				new SimpleDateFormat("yyyy").format(dayRecord4.getDate()));
+
+		DayRecord dayRecord5 = allDayRecords.get(4);
+		assertEquals("2013",
+				new SimpleDateFormat("yyyy").format(dayRecord5.getDate()));
+
 	}
 
 	// //////////////////////////////////////////////////////////

@@ -22,6 +22,6 @@
 	</insert>
 
 	<select id="selectAllDayRecords" parameterType="int" resultMap="dayRecordList">
-		select * from DAY_RECORDS
+		select * from DAY_RECORDS order by date asc
 	</select>
 </mapper>
