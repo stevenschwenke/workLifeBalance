@@ -148,30 +148,114 @@ public class NewTimeRecordController implements Initializable {
 	 * @param dailyRecord
 	 *            to fill
 	 */
-	private void fillDayRecordFromTextfields(DayRecord dailyRecord) {
+	void fillDayRecordFromTextfields(DayRecord dailyRecord) {
+		updateCareerHoursFromTextFieldIntoRecord(dailyRecord);
+		updateFamilyHoursFromTextFieldIntoRecord(dailyRecord);
+		updateHealthHoursFromTextFieldIntoRecord(dailyRecord);
+		updateYouHoursFromTextFieldIntoRecord(dailyRecord);
+	}
+
+	private void updateCareerHoursFromTextFieldIntoRecord(DayRecord dailyRecord) {
 		if (!careerHours.getText().isEmpty()) {
-			TimeRecord careerRecord = new TimeRecord(Aspect.CAREER,
-					Integer.parseInt(careerHours.getText()));
-			dailyRecord.addTimeRecord(careerRecord);
-		}
 
+			int hoursFromTextfield = Integer.parseInt(careerHours.getText());
+
+			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
+				if (tr.getAspect().equals(Aspect.CAREER)) {
+					tr.setHours(tr.getHours() + hoursFromTextfield);
+					return;
+				}
+			}
+
+			TimeRecord record = new TimeRecord(Aspect.CAREER,
+					hoursFromTextfield);
+			dailyRecord.addTimeRecord(record);
+		}
+	}
+
+	private void updateFamilyHoursFromTextFieldIntoRecord(DayRecord dailyRecord) {
 		if (!familyHours.getText().isEmpty()) {
-			TimeRecord familyRecord = new TimeRecord(Aspect.FAMILY,
-					Integer.parseInt(familyHours.getText()));
-			dailyRecord.addTimeRecord(familyRecord);
-		}
 
+			int hoursFromTextfield = Integer.parseInt(familyHours.getText());
+
+			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
+				if (tr.getAspect().equals(Aspect.FAMILY)) {
+					tr.setHours(tr.getHours() + hoursFromTextfield);
+					return;
+				}
+			}
+
+			TimeRecord record = new TimeRecord(Aspect.FAMILY,
+					hoursFromTextfield);
+			dailyRecord.addTimeRecord(record);
+		}
+	}
+
+	private void updateHealthHoursFromTextFieldIntoRecord(DayRecord dailyRecord) {
 		if (!healthHours.getText().isEmpty()) {
-			TimeRecord healthRecord = new TimeRecord(Aspect.HEALTH,
-					Integer.parseInt(healthHours.getText()));
-			dailyRecord.addTimeRecord(healthRecord);
-		}
 
-		if (!youHours.getText().isEmpty()) {
-			TimeRecord youRecord = new TimeRecord(Aspect.YOU,
-					Integer.parseInt(youHours.getText()));
-			dailyRecord.addTimeRecord(youRecord);
+			int hoursFromTextfield = Integer.parseInt(healthHours.getText());
+
+			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
+				if (tr.getAspect().equals(Aspect.HEALTH)) {
+					tr.setHours(tr.getHours() + hoursFromTextfield);
+					return;
+				}
+			}
+
+			TimeRecord record = new TimeRecord(Aspect.HEALTH,
+					hoursFromTextfield);
+			dailyRecord.addTimeRecord(record);
 		}
+	}
+
+	private void updateYouHoursFromTextFieldIntoRecord(DayRecord dailyRecord) {
+		if (!youHours.getText().isEmpty()) {
+
+			int hoursFromTextfield = Integer.parseInt(youHours.getText());
+
+			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
+				if (tr.getAspect().equals(Aspect.YOU)) {
+					tr.setHours(tr.getHours() + hoursFromTextfield);
+					return;
+				}
+			}
+
+			TimeRecord record = new TimeRecord(Aspect.YOU, hoursFromTextfield);
+			dailyRecord.addTimeRecord(record);
+		}
+	}
+
+	/**
+	 * For testing purposes only!
+	 */
+	void setHealthHours(TextField healthHours) {
+		this.healthHours = healthHours;
+	}
+
+	/**
+	 * For testing purposes only!
+	 */
+	void setYouHours(TextField youHours) {
+		this.youHours = youHours;
+	}
+
+	public void setColoniesLabel(Label coloniesLabel) {
+		this.coloniesLabel = coloniesLabel;
+	}
+
+	/**
+	 * For testing purposes only!
+	 */
+	void setFamilyHours(TextField familyHours) {
+		this.familyHours = familyHours;
+	}
+
+	/**
+	 * For testing purposes only!
+	 */
+	void setCareerHours(TextField careerHours) {
+		this.careerHours = careerHours;
 	}
 
 	@FXML

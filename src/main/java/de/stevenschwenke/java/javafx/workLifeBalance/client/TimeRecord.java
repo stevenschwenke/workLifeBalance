@@ -14,6 +14,10 @@ public class TimeRecord {
 
 	private int hours;
 
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+
 	private TimeRecord() {
 		super();
 	}
