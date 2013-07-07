@@ -67,8 +67,7 @@ public abstract class Component {
 		try {
 			view = (Node) fxmlLoaderInternal.load(in);
 		} catch (IOException e) {
-			log.error("Error while creating Component for " + fxmlFileName
-					+ ": " + e.getMessage());
+			log.error("Error while creating Component for " + fxmlFileName + ": " + e.getMessage());
 		}
 
 		group.getChildren().add(view);
@@ -88,9 +87,7 @@ public abstract class Component {
 	public void bubbleDataChanged(Component component) {
 
 		if (parent != null) {
-			log.debug("(" + fxmlFileName
-					+ ") Bubbling data changed event from " + component
-					+ " to " + parent);
+			log.debug("(" + fxmlFileName + ") Bubbling data changed event from " + component + " to " + parent);
 			parent.bubbleDataChanged(component);
 		} else {
 			sendingDataChangedEventToChildren(component);
@@ -112,13 +109,20 @@ public abstract class Component {
 
 		notifyDataChanged(component);
 
-		log.debug("(" + fxmlFileName + ") Sending data changed event from "
-				+ component + " down to " + children.size() + " children.");
+		log.debug("(" + fxmlFileName + ") Sending data changed event from " + component + " down to " + children.size() + " children.");
 		for (Component c : children) {
 			c.sendingDataChangedEventToChildren(component);
 		}
 	}
 
+	/**
+	 * If a component (= subclass of {@link Component}) changed data that could
+	 * concern other components, it sends this information through the
+	 * component-tree. Implement this method within a component to get notified
+	 * of any changes the subcomponent is interested in.
+	 * 
+	 * @param component
+	 */
 	abstract public void notifyDataChanged(Component component);
 
 	public Group getGroup() {

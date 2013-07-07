@@ -9,15 +9,15 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordComponent;
 
 /**
- * TODO Comment!
+ * This is the central class for everything related to the main view a.k.a.
+ * cockpit.
  * 
  * @author Steven Schwenke
  * 
  */
 public class CockpitComponent extends Component {
 
-	private static Logger log = LogManager.getLogger(CockpitComponent.class
-			.getName());
+	private static Logger log = LogManager.getLogger(CockpitComponent.class.getName());
 
 	private CockpitController cockpitController;
 
@@ -28,14 +28,12 @@ public class CockpitComponent extends Component {
 	 * @param fxmlFileName
 	 * @param group
 	 */
-	public CockpitComponent(Component parent, MyBatisDao dao,
-			String fxmlFileName, Group group) {
+	public CockpitComponent(Component parent, MyBatisDao dao, String fxmlFileName, Group group) {
 		super(parent, fxmlFileName, group);
 
 		this.dao = dao;
 
-		cockpitController = (CockpitController) getFxmlLoaderInternal()
-				.getController();
+		cockpitController = (CockpitController) getFxmlLoaderInternal().getController();
 		cockpitController.setComponent(this);
 
 		refreshData();
@@ -58,7 +56,6 @@ public class CockpitComponent extends Component {
 		cockpitController.getPieDataHealth().setPieValue(dao.calculateHealth());
 		cockpitController.getPieDataYou().setPieValue(dao.calculateYou());
 
-		cockpitController.getPoints().setText(
-				dao.calculateOverallpoints().toString());
+		cockpitController.getPoints().setText(dao.calculateOverallpoints().toString());
 	}
 }

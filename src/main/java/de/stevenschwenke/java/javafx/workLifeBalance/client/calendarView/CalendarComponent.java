@@ -14,7 +14,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
 
 /**
- * TODO Comment!
+ * This is the central class for everything related to the calendar view.
  * 
  * @author Steven Schwenke
  * 
@@ -147,8 +147,7 @@ public class CalendarComponent extends Component {
 
 	@Override
 	public void notifyDataChanged(Component component) {
-		// TODO Auto-generated method stub
-
+		// This component doesn't want to get notified of any changes.
 	}
 
 	/**

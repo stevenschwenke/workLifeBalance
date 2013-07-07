@@ -6,7 +6,8 @@ import javafx.scene.Group;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Component;
 
 /**
- * TODO Comment!
+ * This is the central class for everything related to the dialog for adding /
+ * modifying records.
  * 
  * @author Steven Schwenke
  * 
@@ -23,14 +24,12 @@ public class NewTimeRecordComponent extends Component {
 	 * @param fxmlFileName
 	 * @param group
 	 */
-	public NewTimeRecordComponent(Component parent, NewTimeRecordDao dao,
-			String fxmlFileName, Group group) {
+	public NewTimeRecordComponent(Component parent, NewTimeRecordDao dao, String fxmlFileName, Group group) {
 		super(parent, fxmlFileName, group);
 
 		this.dao = dao;
 
-		newTimeRecordController = (NewTimeRecordController) getFxmlLoaderInternal()
-				.getController();
+		newTimeRecordController = (NewTimeRecordController) getFxmlLoaderInternal().getController();
 		newTimeRecordController.setComponent(this);
 		newTimeRecordController.setDao(dao);
 		newTimeRecordController.initDate(Calendar.getInstance());
@@ -39,6 +38,7 @@ public class NewTimeRecordComponent extends Component {
 
 	@Override
 	public void notifyDataChanged(Component component) {
+		// This component doesn't want to get notified of any changes.
 	}
 
 }
