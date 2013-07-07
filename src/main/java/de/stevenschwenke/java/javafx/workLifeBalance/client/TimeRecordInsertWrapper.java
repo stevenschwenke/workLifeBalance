@@ -14,6 +14,10 @@ public class TimeRecordInsertWrapper {
 	public int hours;
 	public long dayRecordId;
 
+	public TimeRecordInsertWrapper() {
+
+	}
+
 	public TimeRecordInsertWrapper(Aspect aspect, int hours, long dayRecordId) {
 		super();
 		this.aspect = aspect.name();

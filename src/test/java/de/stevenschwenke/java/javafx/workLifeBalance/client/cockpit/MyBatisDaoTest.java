@@ -5,14 +5,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,9 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 import liquibase.Liquibase;
-import liquibase.database.jvm.HsqlConnection;
 import liquibase.exception.LiquibaseException;
-import liquibase.resource.ClassLoaderResourceAccessor;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
@@ -36,6 +32,7 @@ import org.junit.Test;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.data.TestDatabaseFacade;
 
 /**
  * Test class for {@link MyBatisDao}.
@@ -47,10 +44,9 @@ public class MyBatisDaoTest {
 
 	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class.getName());
 
-	/** path to test config for the in-memory database */
-	private static final String PATH_TO_TEST_CONFIG = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-test-config.xml";
-
 	private MyBatisDao dao;
+
+	private TestDatabaseFacade testDatabaseFacade;
 
 	/** Connection to the in-memory database */
 	private Connection connection;
@@ -60,31 +56,12 @@ public class MyBatisDaoTest {
 	@Before
 	public void setup() {
 
-		createInMemoryDatabase();
-
-		dao = new MyBatisDao(PATH_TO_TEST_CONFIG);
+		testDatabaseFacade = new TestDatabaseFacade();
+		testDatabaseFacade.createInMemoryDatabase();
+		dao = testDatabaseFacade.createDao();
+		connection = testDatabaseFacade.getConnection();
+		liquibase = testDatabaseFacade.getLiquibase();
 		BasicConfigurator.configure();
-	}
-
-	private void createInMemoryDatabase() {
-
-		String changelog = "changelog.sql";
-
-		try {
-
-			Class.forName("org.hsqldb.jdbcDriver");
-
-			connection = DriverManager.getConnection("jdbc:hsqldb:mem:mydb", "sa", "");
-			HsqlConnection hsqlConnection = new HsqlConnection(connection);
-
-			liquibase = new Liquibase(changelog, new ClassLoaderResourceAccessor(), hsqlConnection);
-
-			liquibase.update(null);
-
-		} catch (SQLException | LiquibaseException | ClassNotFoundException e) {
-			fail();
-			e.printStackTrace();
-		}
 	}
 
 	@After
@@ -419,7 +396,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void calculationOfMalusOfZero() {
-		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
+		MyBatisDao dao = spy(new MyBatisDao(testDatabaseFacade.getPathToTestConfig()));
 
 		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(any(DayRecord.class));
 
@@ -428,7 +405,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void calculationOfMalusOfOne() {
-		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
+		MyBatisDao dao = spy(new MyBatisDao(testDatabaseFacade.getPathToTestConfig()));
 
 		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(any(DayRecord.class));
 
@@ -437,7 +414,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void calculationOfMalusOfX() {
-		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
+		MyBatisDao dao = spy(new MyBatisDao(testDatabaseFacade.getPathToTestConfig()));
 
 		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(any(DayRecord.class));
 
@@ -461,7 +438,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void noMalusAndNoBonusResultsIn100Points() {
-		MyBatisDao mock = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
+		MyBatisDao mock = spy(new MyBatisDao(testDatabaseFacade.getPathToTestConfig()));
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(0L).when(mock).calculateMalus(any(DayRecord.class));
 
@@ -472,7 +449,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void malusOf100ResultsIn0PointsTotal() {
-		MyBatisDao mock = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
+		MyBatisDao mock = spy(new MyBatisDao(testDatabaseFacade.getPathToTestConfig()));
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(100L).when(mock).calculateMalus(any(DayRecord.class));
 
@@ -481,7 +458,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void malusOf50ResultsIn0PointsTotal() {
-		MyBatisDao mock = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
+		MyBatisDao mock = spy(new MyBatisDao(testDatabaseFacade.getPathToTestConfig()));
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(50L).when(mock).calculateMalus(any(DayRecord.class));
 

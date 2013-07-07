@@ -2,20 +2,12 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import javafx.scene.Group;
 import javafx.scene.chart.XYChart.Series;
-import liquibase.Liquibase;
-import liquibase.database.jvm.HsqlConnection;
-import liquibase.exception.LiquibaseException;
-import liquibase.resource.ClassLoaderResourceAccessor;
 
 import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
@@ -25,6 +17,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.data.TestDatabaseFacade;
 
 /**
  * Tests for {@link CalendarComponent}
@@ -35,45 +28,14 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
 public class CalendarComponentTest {
 
 	/** path to test config for the in-memory database */
-	private static final String PATH_TO_TEST_CONFIG = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-test-config.xml";
 	private MyBatisDao dao;
-
-	// TODO This information (PATH_TO_TEST_CONFIG) is located in at least two
-	// classes. Unify!
-
-	/** Connection to the in-memory database */
-	private Connection connection;
-
-	private Liquibase liquibase;
 
 	@Before
 	public void setup() {
-		// TODO This setup is also used in at least two classes - unify!
-		createInMemoryDatabase();
-
-		dao = new MyBatisDao(PATH_TO_TEST_CONFIG);
+		TestDatabaseFacade testDatabaseFacade = new TestDatabaseFacade();
+		testDatabaseFacade.createInMemoryDatabase();
+		dao = testDatabaseFacade.createDao();
 		BasicConfigurator.configure();
-	}
-
-	private void createInMemoryDatabase() {
-
-		String changelog = "changelog.sql";
-
-		try {
-
-			Class.forName("org.hsqldb.jdbcDriver");
-
-			connection = DriverManager.getConnection("jdbc:hsqldb:mem:mydb", "sa", "");
-			HsqlConnection hsqlConnection = new HsqlConnection(connection);
-
-			liquibase = new Liquibase(changelog, new ClassLoaderResourceAccessor(), hsqlConnection);
-
-			liquibase.update(null);
-
-		} catch (SQLException | LiquibaseException | ClassNotFoundException e) {
-			fail();
-			e.printStackTrace();
-		}
 	}
 
 	@Test
