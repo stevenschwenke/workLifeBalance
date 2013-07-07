@@ -10,7 +10,7 @@ import org.apache.log4j.BasicConfigurator;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
 
 /**
- * TODO Comment!
+ * Starting class for the application.
  * 
  * @author Steven Schwenke
  * 

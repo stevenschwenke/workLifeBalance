@@ -107,8 +107,3 @@ public class CockpitController implements Initializable {
 	}
 
 }
-
-// TODO Idee: von Component erben, sodass spezielle Components entstehen, die
-// auch die konkreten DAOs und Controller kennen. Die DAOs dann per
-// ComponentFactory (die alle diese speziellen Componenten kennt) bei der
-// Erstellung der Components setzen.

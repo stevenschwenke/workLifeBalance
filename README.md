@@ -35,7 +35,9 @@ Tool Chain
  - options: SVN (know it already BUT ALSO have to set up my own server), Git (can commit while being offline, great support including a repository through github BUT ALSO github costs money)
  - decision: **Git** with github because its only 7$ per month and I want to get more familiar with Git.
 - Package dependency management tool 
- - TODO (decision for Degraph)
+ - Problem: How to manage dependencies between classes and packages so that there are no circular dependencies and that the architecture is not broken. 
+ - options: No dependency management (will most certainly lead to bad design down the road), (Re)Structure101 (Very good architecture and refactoring tool BUT ALSO expensive (900$) if not used for Open Source (which this project might not be), Degraph (free, I know the developer BUT ALSO in development and at the time being not very comfortable)
+ - Decision: **Degraph**
 
 Technology Stack
 ----------------

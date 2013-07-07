@@ -1,19 +1,24 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client;
 
 /**
- * TODO Comment!
+ * This class wrapps information needed for storing a {@link TimeRecord} into
+ * the database. For further details, see where this class is used.
  * 
  * @author Steven Schwenke
  * 
  */
 public class TimeRecordInsertWrapper {
+
 	public Long id;
 	public String aspect;
 	public int hours;
 	public long dayRecordId;
 
-	private TimeRecordInsertWrapper() {
+	public TimeRecordInsertWrapper(Aspect aspect, int hours, long dayRecordId) {
 		super();
+		this.aspect = aspect.name();
+		this.hours = hours;
+		this.dayRecordId = dayRecordId;
 	}
 
 	public Long getId() {
@@ -45,13 +50,6 @@ public class TimeRecordInsertWrapper {
 	}
 
 	public void setDayRecordId(long dayRecordId) {
-		this.dayRecordId = dayRecordId;
-	}
-
-	public TimeRecordInsertWrapper(Aspect aspect, int hours, long dayRecordId) {
-		super();
-		this.aspect = aspect.name();
-		this.hours = hours;
 		this.dayRecordId = dayRecordId;
 	}
 
