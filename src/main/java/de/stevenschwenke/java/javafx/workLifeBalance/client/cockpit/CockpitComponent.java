@@ -21,9 +21,10 @@ public class CockpitComponent extends Component {
 
 	private CockpitController cockpitController;
 
-	private MyBatisDao dao;
+	private CockpitDao dao;
 
 	/**
+	 * @param componentFactory
 	 * @param parent
 	 * @param fxmlFileName
 	 * @param group
@@ -39,7 +40,7 @@ public class CockpitComponent extends Component {
 		refreshData();
 	}
 
-	protected MyBatisDao getDao() {
+	protected CockpitDao getDao() {
 		return dao;
 	}
 
@@ -58,4 +59,5 @@ public class CockpitComponent extends Component {
 
 		cockpitController.getPoints().setText(dao.calculateOverallpoints().toString());
 	}
+
 }

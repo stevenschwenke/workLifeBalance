@@ -26,12 +26,14 @@ public class CalendarComponent extends Component {
 	private CalendarDao dao;
 
 	/**
+	 * @param componentFactory
 	 * @param parent
 	 * @param fxmlFileName
 	 * @param group
 	 */
 	public CalendarComponent(Component parent, CalendarDao dao, String fxmlFileName, Group group) {
 		super(parent, fxmlFileName, group);
+
 		this.dao = dao;
 
 		viewController = (CalendarController) getFxmlLoaderInternal().getController();

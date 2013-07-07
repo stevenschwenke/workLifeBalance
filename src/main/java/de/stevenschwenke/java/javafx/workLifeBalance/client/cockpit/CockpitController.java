@@ -16,13 +16,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView.CalendarComponent;
-import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTimeRecordComponent;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.ComponentFactory;
 
 public class CockpitController implements Initializable {
 
-	private static Logger log = LogManager.getLogger(CockpitController.class
-			.getName());
+	private static Logger log = LogManager.getLogger(CockpitController.class.getName());
 
 	private CockpitComponent component;
 
@@ -95,15 +93,12 @@ public class CockpitController implements Initializable {
 
 	// Handler for Button[fx:id="add"] onAction
 	public void add(ActionEvent event) {
-		new NewTimeRecordComponent(component, component.getDao(),
-				"newTimeRecord/newTimeRecord.fxml", component.getGroup());
+		ComponentFactory.getInstance().createNewTimeRecordComponent(component);
 	}
 
 	// Handler for Button[fx:id="calendar"] onAction
 	public void calendar(ActionEvent event) {
-		CalendarComponent calendarComponent = new CalendarComponent(component,
-				component.getDao(), "calendar/calendar.fxml",
-				component.getGroup());
+		ComponentFactory.getInstance().createCalendarComponent(component);
 	}
 
 	public void setComponent(CockpitComponent component) {

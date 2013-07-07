@@ -8,13 +8,14 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
  * 
  */
 public interface CockpitDao {
-	/**
-	 * Reads a {@link TimeRecord} with a specific id from the database.
-	 * 
-	 * @param id
-	 *            of the record that should be loaded
-	 * @return loaded record or null if no record with the specified id could be
-	 *         found
-	 */
-	// public TimeRecord readTimeRecord(int id);
+
+	public double calculateCareer();
+
+	public double calculateFamily();
+
+	public double calculateHealth();
+
+	public double calculateYou();
+
+	public Long calculateOverallpoints();
 }

@@ -47,14 +47,6 @@ public interface NewTimeRecordDao {
 	 */
 	public DayRecord getDayRecord(Date date);
 
-	public double calculateCareer();
-
-	public double calculateFamily();
-
-	public double calculateHealth();
-
-	public double calculateYou();
-
 	/**
 	 * @return overall points of the player.
 	 */

@@ -19,6 +19,7 @@ public class NewTimeRecordComponent extends Component {
 	private NewTimeRecordDao dao;
 
 	/**
+	 * @param componentFactory
 	 * @param parent
 	 * @param dao
 	 * @param fxmlFileName

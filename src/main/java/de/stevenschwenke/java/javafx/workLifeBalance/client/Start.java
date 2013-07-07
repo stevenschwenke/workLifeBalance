@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 
 import org.apache.log4j.BasicConfigurator;
 
-import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.CockpitComponent;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
 
 /**
@@ -39,16 +38,17 @@ public class Start extends Application {
 
 		root = new Group();
 
+		ComponentFactory.getInstance().setRoot(root);
+
 		primaryStage.setScene(new Scene(root));
 
-		new CockpitComponent(null, dao, "cockpit/cockpit.fxml", root);
+		ComponentFactory.getInstance().createCockpitComponent(null);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		dao = new MyBatisDao(
-				"de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-live-config.xml");
+		dao = ComponentFactory.getInstance().getDao();
 
 		init(primaryStage);
 
