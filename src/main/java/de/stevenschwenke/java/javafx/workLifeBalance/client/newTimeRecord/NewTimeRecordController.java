@@ -143,7 +143,8 @@ public class NewTimeRecordController implements Initializable {
 	}
 
 	/**
-	 * Fills a {@link DayRecord} from the textfields.
+	 * Fills a {@link DayRecord} with the values from the textfields. Values are
+	 * overriden, not added.
 	 * 
 	 * @param dailyRecord
 	 *            to fill
@@ -162,7 +163,7 @@ public class NewTimeRecordController implements Initializable {
 
 			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
 				if (tr.getAspect().equals(Aspect.CAREER)) {
-					tr.setHours(tr.getHours() + hoursFromTextfield);
+					tr.setHours(hoursFromTextfield);
 					return;
 				}
 			}
@@ -180,7 +181,7 @@ public class NewTimeRecordController implements Initializable {
 
 			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
 				if (tr.getAspect().equals(Aspect.FAMILY)) {
-					tr.setHours(tr.getHours() + hoursFromTextfield);
+					tr.setHours(hoursFromTextfield);
 					return;
 				}
 			}
@@ -198,7 +199,7 @@ public class NewTimeRecordController implements Initializable {
 
 			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
 				if (tr.getAspect().equals(Aspect.HEALTH)) {
-					tr.setHours(tr.getHours() + hoursFromTextfield);
+					tr.setHours(hoursFromTextfield);
 					return;
 				}
 			}
@@ -216,7 +217,7 @@ public class NewTimeRecordController implements Initializable {
 
 			for (TimeRecord tr : dailyRecord.getTimeRecordsToday()) {
 				if (tr.getAspect().equals(Aspect.YOU)) {
-					tr.setHours(tr.getHours() + hoursFromTextfield);
+					tr.setHours(hoursFromTextfield);
 					return;
 				}
 			}
