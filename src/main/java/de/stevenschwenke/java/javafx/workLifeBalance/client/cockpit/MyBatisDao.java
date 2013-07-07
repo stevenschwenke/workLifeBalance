@@ -28,8 +28,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.newTimeRecord.NewTim
  */
 public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 
-	private static Logger log = LogManager
-			.getLogger(MyBatisDao.class.getName());
+	private static Logger log = LogManager.getLogger(MyBatisDao.class.getName());
 
 	private SqlSessionFactory sqlSessionFactory;
 
@@ -40,11 +39,9 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		try {
 			log.debug("Building up connection to database " + configPath);
 			InputStream inputStream = Resources.getResourceAsStream(configPath);
-			sqlSessionFactory = new SqlSessionFactoryBuilder()
-					.build(inputStream);
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {
-			log.error("Could not build up connection to database " + configPath
-					+ ": " + e.getMessage());
+			log.error("Could not build up connection to database " + configPath + ": " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -61,13 +58,10 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			List<TimeRecord> resultList = new ArrayList<TimeRecord>();
-			List<TimeRecordInsertWrapper> wrapperList = session
-					.selectList(
-							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecordOfDayRecord",
-							dayRecordId);
+			List<TimeRecordInsertWrapper> wrapperList = session.selectList(
+					"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.selectTimeRecordOfDayRecord", dayRecordId);
 			for (TimeRecordInsertWrapper w : wrapperList) {
-				TimeRecord tr = new TimeRecord(Aspect.valueOf(w.aspect),
-						w.hours);
+				TimeRecord tr = new TimeRecord(Aspect.valueOf(w.aspect), w.hours);
 				tr.setId(w.id);
 				resultList.add(tr);
 
@@ -82,15 +76,10 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 
-			session.insert(
-					"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.insertDayRecord",
-					newRecord);
+			session.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.insertDayRecord", newRecord);
 			for (TimeRecord tr : newRecord.getTimeRecordsToday()) {
-				TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
-						tr.getAspect(), tr.getHours(), newRecord.getId());
-				session.insert(
-						"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord",
-						wrapper);
+				TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(tr.getAspect(), tr.getHours(), newRecord.getId());
+				session.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord", wrapper);
 			}
 			return newRecord.getId();
 		} finally {
@@ -106,20 +95,12 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 			for (TimeRecord tr : existingRecord.getTimeRecordsToday()) {
 
 				if (tr.getId() == null) {
-					TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
-							tr.getAspect(), tr.getHours(),
-							existingRecord.getId());
-					session.insert(
-							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord",
-							wrapper);
+					TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(tr.getAspect(), tr.getHours(), existingRecord.getId());
+					session.insert("de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.insertTimeRecord", wrapper);
 				} else {
-					TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(
-							tr.getAspect(), tr.getHours(),
-							existingRecord.getId());
+					TimeRecordInsertWrapper wrapper = new TimeRecordInsertWrapper(tr.getAspect(), tr.getHours(), existingRecord.getId());
 					wrapper.setId(tr.getId());
-					session.update(
-							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.updateTimeRecord",
-							wrapper);
+					session.update("de.stevenschwenke.java.javafx.workLifeBalance.client.data.TimeRecordMapper.updateTimeRecord", wrapper);
 				}
 			}
 		} finally {
@@ -274,8 +255,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 			List<DayRecord> dayRecordsWithoutTimeRecords = session
 					.selectList("de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.selectAllDayRecords");
 			for (DayRecord dr : dayRecordsWithoutTimeRecords) {
-				List<TimeRecord> timeRecordsOfDayRecord = readTimeRecordOfDayRecord(dr
-						.getId());
+				List<TimeRecord> timeRecordsOfDayRecord = readTimeRecordOfDayRecord(dr.getId());
 				dr.setTimeRecordsToday(timeRecordsOfDayRecord);
 			}
 			return dayRecordsWithoutTimeRecords;
@@ -289,9 +269,7 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			int count = session
-					.selectOne(
-							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.dayRecordExists",
-							date);
+					.selectOne("de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.dayRecordExists", date);
 			return count > 0;
 		} finally {
 			session.close();
@@ -302,16 +280,47 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 	public DayRecord getDayRecord(Date date) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			DayRecord dr = session
-					.selectOne(
-							"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.selectDayRecordByDate",
-							date);
-			List<TimeRecord> timeRecordsOfDayRecord = readTimeRecordOfDayRecord(dr
-					.getId());
+			DayRecord dr = session.selectOne(
+					"de.stevenschwenke.java.javafx.workLifeBalance.client.data.DayRecordMapper.selectDayRecordByDate", date);
+
+			if (dr == null)
+				return null;
+
+			List<TimeRecord> timeRecordsOfDayRecord = readTimeRecordOfDayRecord(dr.getId());
 			dr.setTimeRecordsToday(timeRecordsOfDayRecord);
 			return dr;
 		} finally {
 			session.close();
 		}
+	}
+
+	@Override
+	public Date getEarliestDayOfRecord() {
+		// TODO optimize this with own SQL
+
+		Date earliestDate = null;
+		for (DayRecord dr : getAllDayRecords()) {
+			if (earliestDate == null)
+				earliestDate = dr.getDate();
+
+			if (dr.getDate().before(earliestDate))
+				earliestDate = dr.getDate();
+		}
+		return earliestDate;
+	}
+
+	@Override
+	public Date getLastDayOfRecord() {
+		// TODO optimize this with own SQL
+
+		Date lastDate = null;
+		for (DayRecord dr : getAllDayRecords()) {
+			if (lastDate == null)
+				lastDate = dr.getDate();
+
+			if (dr.getDate().after(lastDate))
+				lastDate = dr.getDate();
+		}
+		return lastDate;
 	}
 }

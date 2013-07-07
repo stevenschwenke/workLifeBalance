@@ -42,8 +42,8 @@ public interface NewTimeRecordDao {
 	 * 
 	 * @param date
 	 *            that the day Record is from
-	 * @return record of the day. If no record is found, an exception gets
-	 *         thrown.
+	 * @return record of the day or null if no record for the specified date is
+	 *         known.
 	 */
 	public DayRecord getDayRecord(Date date);
 

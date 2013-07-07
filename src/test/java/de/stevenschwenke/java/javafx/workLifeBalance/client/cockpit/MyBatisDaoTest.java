@@ -3,6 +3,7 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
@@ -44,8 +45,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
  */
 public class MyBatisDaoTest {
 
-	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class
-			.getName());
+	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class.getName());
 
 	/** path to test config for the in-memory database */
 	private static final String PATH_TO_TEST_CONFIG = "de/stevenschwenke/java/javafx/workLifeBalance/client/data/mybatis-test-config.xml";
@@ -74,12 +74,10 @@ public class MyBatisDaoTest {
 
 			Class.forName("org.hsqldb.jdbcDriver");
 
-			connection = DriverManager.getConnection("jdbc:hsqldb:mem:mydb",
-					"sa", "");
+			connection = DriverManager.getConnection("jdbc:hsqldb:mem:mydb", "sa", "");
 			HsqlConnection hsqlConnection = new HsqlConnection(connection);
 
-			liquibase = new Liquibase(changelog,
-					new ClassLoaderResourceAccessor(), hsqlConnection);
+			liquibase = new Liquibase(changelog, new ClassLoaderResourceAccessor(), hsqlConnection);
 
 			liquibase.update(null);
 
@@ -112,12 +110,9 @@ public class MyBatisDaoTest {
 		statement = connection.createStatement();
 
 		// Record #1
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
-		statement
-				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0,'CAREER')");
-		statement
-				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (45, 0, 'CAREER')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
+		statement.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0,'CAREER')");
+		statement.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (45, 0, 'CAREER')");
 		connection.commit();
 		List<TimeRecord> timeRecords = dao.readTimeRecordOfDayRecord(0L);
 
@@ -133,8 +128,7 @@ public class MyBatisDaoTest {
 		Statement statement;
 		statement = connection.createStatement();
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
 		connection.commit();
 
 		Calendar cal = Calendar.getInstance();
@@ -150,8 +144,7 @@ public class MyBatisDaoTest {
 		Statement statement;
 		statement = connection.createStatement();
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
 		connection.commit();
 
 		Calendar cal = Calendar.getInstance();
@@ -167,12 +160,9 @@ public class MyBatisDaoTest {
 		Statement statement;
 		statement = connection.createStatement();
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2014-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2014-01-01')");
 		connection.commit();
 
 		Calendar cal = Calendar.getInstance();
@@ -190,6 +180,27 @@ public class MyBatisDaoTest {
 	}
 
 	@Test
+	public void getADayRecordReturnsNullIfThereIsNoDayRecordForTheSpecifiedDate() throws SQLException {
+		Statement statement;
+		statement = connection.createStatement();
+
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
+		connection.commit();
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2013);
+		cal.set(Calendar.MONTH, 0);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+
+		DayRecord dayRecord = dao.getDayRecord(cal.getTime());
+		assertNull(dayRecord);
+	}
+
+	@Test
 	public void readDayRecordFromEmptyDatabaseIsNull() {
 		assertEquals(0, dao.getAllDayRecords().size());
 	}
@@ -199,18 +210,15 @@ public class MyBatisDaoTest {
 		Statement statement;
 		statement = connection.createStatement();
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
-		statement
-				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values (CURDATE())");
+		statement.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
 		connection.commit();
 
 		List<DayRecord> allDayRecords = dao.getAllDayRecords();
 		assertNotNull(allDayRecords);
 		assertEquals(1, allDayRecords.size());
 		assertEquals(1, allDayRecords.get(0).getTimeRecordsToday().size());
-		assertEquals(new Long(0), allDayRecords.get(0).getTimeRecordsToday()
-				.get(0).getId());
+		assertEquals(new Long(0), allDayRecords.get(0).getTimeRecordsToday().get(0).getId());
 
 	}
 
@@ -222,8 +230,7 @@ public class MyBatisDaoTest {
 		Statement statement;
 		statement = connection.createStatement();
 
-		ResultSet resultSet = statement
-				.executeQuery("select * from DAY_RECORDS");
+		ResultSet resultSet = statement.executeQuery("select * from DAY_RECORDS");
 
 		int numberOfRows = 0;
 		while (resultSet.next()) {
@@ -248,8 +255,7 @@ public class MyBatisDaoTest {
 		assertEquals(0, dayRecordId);
 		Statement statement;
 		statement = connection.createStatement();
-		ResultSet resultSet = statement
-				.executeQuery("select * from DAY_RECORDS");
+		ResultSet resultSet = statement.executeQuery("select * from DAY_RECORDS");
 
 		int numberOfRows = 0;
 		while (resultSet.next()) {
@@ -283,22 +289,16 @@ public class MyBatisDaoTest {
 		statement = connection.createStatement();
 
 		// Record #1
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
-		statement
-				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-01')");
+		statement.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (42, 0, 'CAREER')");
 
 		// Record #2
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-02')");
-		statement
-				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (43, 1,'FAMILY')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-02')");
+		statement.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (43, 1,'FAMILY')");
 
 		// Record #3
-		statement
-				.executeUpdate("insert into DAY_RECORDS ( date) values ('2013-01-03')");
-		statement
-				.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (44, 2, 'HEALTH')");
+		statement.executeUpdate("insert into DAY_RECORDS ( date) values ('2013-01-03')");
+		statement.executeUpdate("insert into TIME_RECORDS (hours, day_record_id, aspect) values (44, 2, 'HEALTH')");
 		connection.commit();
 
 		List<DayRecord> allDayRecords = dao.getAllDayRecords();
@@ -308,28 +308,22 @@ public class MyBatisDaoTest {
 		// Record #1
 		DayRecord dayRecord1 = allDayRecords.get(0);
 		assertEquals(1, dayRecord1.getTimeRecordsToday().size());
-		assertEquals(new Long(0), dayRecord1.getTimeRecordsToday().get(0)
-				.getId());
-		assertEquals(Aspect.CAREER, dayRecord1.getTimeRecordsToday().get(0)
-				.getAspect());
+		assertEquals(new Long(0), dayRecord1.getTimeRecordsToday().get(0).getId());
+		assertEquals(Aspect.CAREER, dayRecord1.getTimeRecordsToday().get(0).getAspect());
 		assertEquals(42, dayRecord1.getTimeRecordsToday().get(0).getHours());
 
 		// Record #2
 		DayRecord dayRecord2 = allDayRecords.get(1);
 		assertEquals(1, dayRecord2.getTimeRecordsToday().size());
-		assertEquals(new Long(1), dayRecord2.getTimeRecordsToday().get(0)
-				.getId());
-		assertEquals(Aspect.FAMILY, dayRecord2.getTimeRecordsToday().get(0)
-				.getAspect());
+		assertEquals(new Long(1), dayRecord2.getTimeRecordsToday().get(0).getId());
+		assertEquals(Aspect.FAMILY, dayRecord2.getTimeRecordsToday().get(0).getAspect());
 		assertEquals(43, dayRecord2.getTimeRecordsToday().get(0).getHours());
 
 		// Record #3
 		DayRecord dayRecord3 = allDayRecords.get(2);
 		assertEquals(1, dayRecord3.getTimeRecordsToday().size());
-		assertEquals(new Long(2), dayRecord3.getTimeRecordsToday().get(0)
-				.getId());
-		assertEquals(Aspect.HEALTH, dayRecord3.getTimeRecordsToday().get(0)
-				.getAspect());
+		assertEquals(new Long(2), dayRecord3.getTimeRecordsToday().get(0).getId());
+		assertEquals(Aspect.HEALTH, dayRecord3.getTimeRecordsToday().get(0).getAspect());
 		assertEquals(44, dayRecord3.getTimeRecordsToday().get(0).getHours());
 	}
 
@@ -339,20 +333,15 @@ public class MyBatisDaoTest {
 		statement = connection.createStatement();
 
 		// Record #1
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2011-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2011-01-01')");
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2012-01-01')");
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2010-01-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2010-01-01')");
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-02')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2013-01-02')");
 
-		statement
-				.executeUpdate("insert into DAY_RECORDS (date) values ('2011-02-01')");
+		statement.executeUpdate("insert into DAY_RECORDS (date) values ('2011-02-01')");
 
 		connection.commit();
 
@@ -361,28 +350,21 @@ public class MyBatisDaoTest {
 		assertEquals(5, allDayRecords.size());
 
 		DayRecord dayRecord1 = allDayRecords.get(0);
-		assertEquals("2010",
-				new SimpleDateFormat("yyyy").format(dayRecord1.getDate()));
+		assertEquals("2010", new SimpleDateFormat("yyyy").format(dayRecord1.getDate()));
 
 		DayRecord dayRecord2 = allDayRecords.get(1);
-		assertEquals("2011",
-				new SimpleDateFormat("yyyy").format(dayRecord2.getDate()));
-		assertEquals("01",
-				new SimpleDateFormat("MM").format(dayRecord2.getDate()));
+		assertEquals("2011", new SimpleDateFormat("yyyy").format(dayRecord2.getDate()));
+		assertEquals("01", new SimpleDateFormat("MM").format(dayRecord2.getDate()));
 
 		DayRecord dayRecord3 = allDayRecords.get(2);
-		assertEquals("2011",
-				new SimpleDateFormat("yyyy").format(dayRecord3.getDate()));
-		assertEquals("02",
-				new SimpleDateFormat("MM").format(dayRecord3.getDate()));
+		assertEquals("2011", new SimpleDateFormat("yyyy").format(dayRecord3.getDate()));
+		assertEquals("02", new SimpleDateFormat("MM").format(dayRecord3.getDate()));
 
 		DayRecord dayRecord4 = allDayRecords.get(3);
-		assertEquals("2012",
-				new SimpleDateFormat("yyyy").format(dayRecord4.getDate()));
+		assertEquals("2012", new SimpleDateFormat("yyyy").format(dayRecord4.getDate()));
 
 		DayRecord dayRecord5 = allDayRecords.get(4);
-		assertEquals("2013",
-				new SimpleDateFormat("yyyy").format(dayRecord5.getDate()));
+		assertEquals("2013", new SimpleDateFormat("yyyy").format(dayRecord5.getDate()));
 
 	}
 
@@ -439,8 +421,7 @@ public class MyBatisDaoTest {
 	public void calculationOfMalusOfZero() {
 		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 
-		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(
-				any(DayRecord.class));
+		doReturn((double) 0).when(dao).calculateBiggestRelativeDeviation(any(DayRecord.class));
 
 		assertEquals(new Long(0), dao.calculateMalus(new DayRecord(new Date())));
 	}
@@ -449,22 +430,18 @@ public class MyBatisDaoTest {
 	public void calculationOfMalusOfOne() {
 		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 
-		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(
-				any(DayRecord.class));
+		doReturn(1d).when(dao).calculateBiggestRelativeDeviation(any(DayRecord.class));
 
-		assertEquals(new Long(100),
-				dao.calculateMalus(new DayRecord(new Date())));
+		assertEquals(new Long(100), dao.calculateMalus(new DayRecord(new Date())));
 	}
 
 	@Test
 	public void calculationOfMalusOfX() {
 		MyBatisDao dao = spy(new MyBatisDao(PATH_TO_TEST_CONFIG));
 
-		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(
-				any(DayRecord.class));
+		doReturn((double) 0.5).when(dao).calculateBiggestRelativeDeviation(any(DayRecord.class));
 
-		assertEquals(new Long(50),
-				dao.calculateMalus(new DayRecord(new Date())));
+		assertEquals(new Long(50), dao.calculateMalus(new DayRecord(new Date())));
 	}
 
 	// //////////////////////////////////////////////////////////
@@ -479,8 +456,7 @@ public class MyBatisDaoTest {
 
 	@Test
 	public void noRecordsResultsIn0Points() {
-		assertEquals(new Long(0),
-				dao.calculateOverallpoints(new DayRecord(new Date())));
+		assertEquals(new Long(0), dao.calculateOverallpoints(new DayRecord(new Date())));
 	}
 
 	@Test
@@ -489,13 +465,9 @@ public class MyBatisDaoTest {
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(0L).when(mock).calculateMalus(any(DayRecord.class));
 
-		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord(
-				new Date());
-		fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero
-				.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
-		assertEquals(
-				new Long(100),
-				mock.calculateOverallpoints(fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero));
+		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord(new Date());
+		fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
+		assertEquals(new Long(100), mock.calculateOverallpoints(fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero));
 	}
 
 	@Test
@@ -504,8 +476,7 @@ public class MyBatisDaoTest {
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(100L).when(mock).calculateMalus(any(DayRecord.class));
 
-		assertEquals(new Long(0),
-				mock.calculateOverallpoints(new DayRecord(new Date())));
+		assertEquals(new Long(0), mock.calculateOverallpoints(new DayRecord(new Date())));
 	}
 
 	@Test
@@ -514,13 +485,9 @@ public class MyBatisDaoTest {
 		when(mock.calculateBonus(any(DayRecord.class))).thenReturn(0L);
 		doReturn(50L).when(mock).calculateMalus(any(DayRecord.class));
 
-		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord(
-				new Date());
-		fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero
-				.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
-		assertEquals(
-				new Long(50),
-				mock.calculateOverallpoints(fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero));
+		DayRecord fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero = new DayRecord(new Date());
+		fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero.addTimeRecord(new TimeRecord(Aspect.CAREER, 1));
+		assertEquals(new Long(50), mock.calculateOverallpoints(fakeDayRecordWithOneRecordSoTheCalculationWillNotGiveZero));
 	}
 
 }
