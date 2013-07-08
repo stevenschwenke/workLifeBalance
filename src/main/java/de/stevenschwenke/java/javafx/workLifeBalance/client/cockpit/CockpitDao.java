@@ -1,6 +1,5 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
-
 /**
  * The data access object for the cockpit.
  * 
@@ -17,5 +16,8 @@ public interface CockpitDao {
 
 	public double calculateYou();
 
+	/**
+	 * @return overall points of the player.
+	 */
 	public Long calculateOverallpoints();
 }

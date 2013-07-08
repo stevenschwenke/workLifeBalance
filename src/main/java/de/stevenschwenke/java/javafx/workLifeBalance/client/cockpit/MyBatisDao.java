@@ -199,7 +199,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		return 0L;
 	}
 
-	@Override
 	public Long calculateOverallpoints() {
 		// To calculate the overall points, all records have to be aggregated
 		// into one record that is then used to calculate the points. Another
@@ -248,7 +247,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		return totalRecord;
 	}
 
-	@Override
 	public List<DayRecord> getAllDayRecords() {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
@@ -264,7 +262,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		}
 	}
 
-	@Override
 	public boolean dayRecordExists(Date date) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
@@ -276,7 +273,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		}
 	}
 
-	@Override
 	public DayRecord getDayRecord(Date date) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
@@ -294,7 +290,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		}
 	}
 
-	@Override
 	public Date getEarliestDayOfRecord() {
 		// TODO optimize this with own SQL
 
@@ -309,7 +304,6 @@ public class MyBatisDao implements NewTimeRecordDao, CalendarDao, CockpitDao {
 		return earliestDate;
 	}
 
-	@Override
 	public Date getLastDayOfRecord() {
 		// TODO optimize this with own SQL
 

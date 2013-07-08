@@ -46,10 +46,4 @@ public interface NewTimeRecordDao {
 	 *         known.
 	 */
 	public DayRecord getDayRecord(Date date);
-
-	/**
-	 * @return overall points of the player.
-	 */
-	public Long calculateOverallpoints();
-
 }
