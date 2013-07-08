@@ -1,5 +1,9 @@
 package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
 
+import java.util.List;
+
+import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
+
 /**
  * The data access object for the cockpit.
  * 
@@ -7,17 +11,5 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit;
  * 
  */
 public interface CockpitDao {
-
-	public double calculateCareer();
-
-	public double calculateFamily();
-
-	public double calculateHealth();
-
-	public double calculateYou();
-
-	/**
-	 * @return overall points of the player.
-	 */
-	public Long calculateOverallpoints();
+	public List<DayRecord> getAllDayRecords();
 }

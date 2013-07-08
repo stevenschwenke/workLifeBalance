@@ -3,13 +3,20 @@ package de.stevenschwenke.java.javafx.workLifeBalance.client.calendarView;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import javafx.scene.Group;
 import javafx.scene.chart.XYChart.Series;
+import liquibase.Liquibase;
+import liquibase.exception.LiquibaseException;
 
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,6 +24,7 @@ import de.stevenschwenke.java.javafx.workLifeBalance.client.Aspect;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.DayRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.TimeRecord;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDao;
+import de.stevenschwenke.java.javafx.workLifeBalance.client.cockpit.MyBatisDaoTest;
 import de.stevenschwenke.java.javafx.workLifeBalance.client.data.TestDatabaseFacade;
 
 /**
@@ -30,13 +38,44 @@ public class CalendarComponentTest {
 	/** path to test config for the in-memory database */
 	private MyBatisDao dao;
 
+	private static Logger log = LogManager.getLogger(MyBatisDaoTest.class.getName());
+
+	private TestDatabaseFacade testDatabaseFacade;
+
+	/** Connection to the in-memory database */
+	private Connection connection;
+
+	private Liquibase liquibase;
+
 	@Before
 	public void setup() {
-		TestDatabaseFacade testDatabaseFacade = new TestDatabaseFacade();
+
+		testDatabaseFacade = new TestDatabaseFacade();
 		testDatabaseFacade.createInMemoryDatabase();
 		dao = testDatabaseFacade.createDao();
+		connection = testDatabaseFacade.getConnection();
+		liquibase = testDatabaseFacade.getLiquibase();
 		BasicConfigurator.configure();
 	}
+
+	@After
+	public void teardown() {
+		try {
+			liquibase.dropAll();
+			connection.close();
+		} catch (SQLException | LiquibaseException e) {
+			log.error("Error closing the connection: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	// @Before
+	// public void setup() {
+	// TestDatabaseFacade testDatabaseFacade = new TestDatabaseFacade();
+	// testDatabaseFacade.createInMemoryDatabase();
+	// dao = testDatabaseFacade.createDao();
+	// BasicConfigurator.configure();
+	// }
 
 	@Test
 	public void getTimeRecordForAspectReturnsNullForAnEmptyList() {

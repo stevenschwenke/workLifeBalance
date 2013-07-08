@@ -23,6 +23,8 @@ public class CockpitComponent extends Component {
 
 	private CockpitDao dao;
 
+	private PointCalculator calculator;
+
 	/**
 	 * @param componentFactory
 	 * @param parent
@@ -36,6 +38,8 @@ public class CockpitComponent extends Component {
 
 		cockpitController = (CockpitController) getFxmlLoaderInternal().getController();
 		cockpitController.setComponent(this);
+
+		calculator = new PointCalculator(dao);
 
 		refreshData();
 	}
@@ -52,12 +56,12 @@ public class CockpitComponent extends Component {
 	}
 
 	private void refreshData() {
-		cockpitController.getPieDataCareer().setPieValue(dao.calculateCareer());
-		cockpitController.getPieDataFamily().setPieValue(dao.calculateFamily());
-		cockpitController.getPieDataHealth().setPieValue(dao.calculateHealth());
-		cockpitController.getPieDataYou().setPieValue(dao.calculateYou());
+		cockpitController.getPieDataCareer().setPieValue(calculator.calculateCareer());
+		cockpitController.getPieDataFamily().setPieValue(calculator.calculateFamily());
+		cockpitController.getPieDataHealth().setPieValue(calculator.calculateHealth());
+		cockpitController.getPieDataYou().setPieValue(calculator.calculateYou());
 
-		cockpitController.getPoints().setText(dao.calculateOverallpoints().toString());
+		cockpitController.getPoints().setText(calculator.calculateOverallpoints().toString());
 	}
 
 }
